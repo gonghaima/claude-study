@@ -83,3 +83,31 @@ final_answer = chat(messages)
 ```
 
 The second prompt ("Write another sentence") works because the model sees the first exchange in `messages`.
+
+## Interactive Chatbot
+
+`chatbot.py` is a REPL-style chatbot that lets you chat with the model interactively. It uses the same conversation-history pattern as `multi_turn.py`, but driven by live user input instead of a hardcoded script.
+
+### How It Works
+
+1. Prompts you with `You: ` and reads your input
+2. Appends it to `messages` and sends the full history to the model
+3. Prints the response as `Bot: ...` and appends it to `messages`
+4. Repeats indefinitely until you kill the process (`Ctrl+C`)
+
+### Run
+
+```bash
+python3 chatbot.py
+```
+
+### Example Session
+
+```
+You: What is the capital of France?
+Bot: The capital of France is Paris.
+You: What language do they speak there?
+Bot: The primary language spoken in Paris (and France) is French.
+```
+
+Because the full `messages` list is sent each turn, the model retains context across the entire conversation.
