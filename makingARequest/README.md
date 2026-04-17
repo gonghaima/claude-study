@@ -1,10 +1,16 @@
 # Making a Request
 
-A simple Python script that sends a prompt to a local [Ollama](https://ollama.com) model and prints the response.
+A collection of Python scripts that interact with a local [Ollama](https://ollama.com) model via its REST API.
+
+| Script | Description |
+|---|---|
+| `main.py` | Single-turn request — sends one prompt and prints the response |
+| `multi_turn.py` | Multi-turn script — sends a fixed two-turn conversation |
+| `chatbot.py` | Interactive chatbot — REPL loop that lets you chat in real time |
 
 ## How It Works
 
-`main.py` sends a chat request to Ollama's local REST API (`http://localhost:11434/api/chat`) using the `gemma4:e4b` model and prints the generated text.
+All scripts send requests to Ollama's local REST API (`http://localhost:11434/api/chat`) using the `gemma4:e4b` model.
 
 ## Requirements
 
