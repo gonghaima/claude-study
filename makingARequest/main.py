@@ -1,19 +1,20 @@
 import requests
+from settings import API_URL, MODEL, HEADERS, PROVIDER
 
-model = "gemma4:e4b"
+payload = {
+    "model": MODEL,
+    "messages": [{"role": "user", "content": "What is quantum computing? Answer in one sentence"}],
+}
 
-response = requests.post(
-    "http://localhost:11434/api/chat",
-    json={
-        "model": model,
-        "messages": [
-            {
-                "role": "user",
-                "content": "What is quantum computing? Answer in one sentence"
-            }
-        ],
-        "stream": False
-    }
-)
+if PROVIDER == "openrouter":
+    pass
+else:
+    payload["stream"] = False
 
-print(response.json()["message"]["content"])
+response = requests.post(API_URL, headers=HEADERS, json=payload)
+response.raise_for_status()
+
+if PROVIDER == "openrouter":
+    print(response.json()["choices"][0]["message"]["content"])
+else:
+    print(response.json()["message"]["content"])

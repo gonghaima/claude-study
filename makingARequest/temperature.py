@@ -1,31 +1,29 @@
 import requests
+from settings import API_URL, MODEL, HEADERS, PROVIDER
 
-model = "gemma4:e4b"
 
+def chat(messages, temperature=1.0):
+    payload = {"model": MODEL, "messages": messages}
 
-def chat(messages, system=None, temperature=1.0):
-    payload = {
-        "model": model,
-        "messages": messages,
-        "stream": False,
-        "options": {
-            "temperature": temperature
-        }
-    }
+    if PROVIDER == "openrouter":
+        payload["temperature"] = temperature
+    else:  # ollama
+        payload["stream"] = False
+        payload["options"] = {"temperature": temperature}
 
-    if system:
-        payload["system"] = system
+    response = requests.post(API_URL, headers=HEADERS, json=payload)
+    response.raise_for_status()
 
-    response = requests.post("http://localhost:11434/api/chat", json=payload)
-    return response.json()["message"]["content"]
+    if PROVIDER == "openrouter":
+        return response.json()["choices"][0]["message"]["content"]
+    else:
+        return response.json()["message"]["content"]
 
 
 messages = [{"role": "user", "content": "Give me a one-sentence movie idea."}]
 
 print("Low temperature (0.0) - predictable:")
-answer = chat(messages, temperature=0.0)
-print(answer)
+print(chat(messages, temperature=0.0))
 
 print("\nHigh temperature (1.0) - creative:")
-answer = chat(messages, temperature=1.0)
-print(answer)
+print(chat(messages, temperature=1.0))
