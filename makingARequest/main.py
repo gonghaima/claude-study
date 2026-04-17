@@ -1,20 +1,19 @@
-from dotenv import load_dotenv
-load_dotenv()
+import requests
 
-from anthropic import Anthropic
+model = "gemma4:e4b"
 
-client = Anthropic()
-model = "claude-haiku-4-5-20251001"
-
-message = client.messages.create(
-    model=model,
-    max_tokens=1000,
-    messages=[
-        {
-            "role": "user",
-            "content": "What is quantum computing? Answer in one sentence"
-        }
-    ]
+response = requests.post(
+    "http://localhost:11434/api/chat",
+    json={
+        "model": model,
+        "messages": [
+            {
+                "role": "user",
+                "content": "What is quantum computing? Answer in one sentence"
+            }
+        ],
+        "stream": False
+    }
 )
 
-print(message.content[0].text)
+print(response.json()["message"]["content"])
