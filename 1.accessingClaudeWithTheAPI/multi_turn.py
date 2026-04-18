@@ -1,3 +1,5 @@
+import sys, os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 import requests
 from settings import API_URL, MODEL, HEADERS, PROVIDER
 
@@ -26,9 +28,11 @@ def chat(messages):
 
 messages = []
 
-while True:
-    user_input = input("You: ")
-    add_user_message(messages, user_input)
-    response = chat(messages)
-    add_assistant_message(messages, response)
-    print(f"Bot: {response}")
+add_user_message(messages, "Define quantum computing in one sentence")
+answer = chat(messages)
+add_assistant_message(messages, answer)
+
+add_user_message(messages, "Write another sentence")
+final_answer = chat(messages)
+
+print(final_answer)
