@@ -1,0 +1,14 @@
+[
+  {
+    "task": "Generate a JSON policy document that grants read-only access (s3:GetObject) to all objects within a specific S3 bucket named 'data-backup-2024'. This policy should only allow access from a specific AWS account ID (e.g., '123456789012').",
+    "required_artifact_type": "JSON"
+  },
+  {
+    "task": "Write a single Python function using the 'boto3' library that accepts an AWS Region and a list of EC2 Instance IDs. The function must iterate through the IDs and print the status (running, stopped, terminated) for each instance.",
+    "required_artifact_type": "Python Function"
+  },
+  {
+    "task": "Given a sample CloudFormation stack event log that contains structured key-value pairs, write a regular expression (regex) to reliably extract the full ARN (Amazon Resource Name) of a newly created resource.",
+    "required_artifact_type": "Regex"
+  }
+]

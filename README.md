@@ -12,6 +12,7 @@ A collection of Python scripts demonstrating how to interact with LLMs via REST 
 | `1.accessingClaudeWithTheAPI/streaming.py` | Streaming responses — prints tokens as they arrive with retry on rate limits |
 | `1.accessingClaudeWithTheAPI/temperature.py` | Temperature demo — compares low vs high temperature outputs |
 | `1.accessingClaudeWithTheAPI/structured_data.py` | Structured data extraction — uses stop sequences to extract clean code blocks |
+| `2.promptEvaluation/generate_dataset.py` | Dataset generation — generates a JSON evaluation dataset of AWS-related coding tasks |
 
 ## Provider Configuration
 
@@ -126,4 +127,19 @@ venv/bin/python 1.accessingClaudeWithTheAPI/temperature.py
 
 ```bash
 venv/bin/python 1.accessingClaudeWithTheAPI/structured_data.py
+```
+
+## Prompt Evaluation — Dataset Generation
+
+`2.promptEvaluation/generate_dataset.py` generates a JSON evaluation dataset of AWS-related coding tasks (Python, JSON, or Regex). It uses the assistant prefill technique to reliably extract structured JSON output:
+
+- **OpenRouter**: prefills the assistant turn with `` ```json `` and uses a stop sequence to capture only the JSON content
+- **Ollama**: asks the model directly and strips any markdown fences from the response (Ollama models don't reliably support mid-conversation assistant prefill)
+
+The dataset is saved to `2.promptEvaluation/dataset.json`.
+
+### Run
+
+```bash
+venv/bin/python 2.promptEvaluation/generate_dataset.py
 ```
