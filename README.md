@@ -142,4 +142,5 @@ The dataset is saved to `2.promptEvaluation/dataset.json`.
 
 ```bash
 venv/bin/python 2.promptEvaluation/generate_dataset.py
+./venv/bin/python3 2.promptEvaluation/run_eval.py  
 ```
