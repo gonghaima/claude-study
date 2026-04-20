@@ -1,0 +1,48 @@
+[
+  {
+    "prompt_inputs": {
+      "height": "175",
+      "weight": "68",
+      "goal": "maintenance",
+      "restrictions": "Vegan, Gluten-Free, Vegetarian"
+    },
+    "solution_criteria": [
+      "The output must be a complete, actionable 1-day meal plan.",
+      "The plan must strictly adhere to Vegan, Gluten-Free, and Vegetarian dietary requirements (no animal products or gluten sources).",
+      "The meal plan must demonstrate nutritional balance suitable for an athlete aiming for maintenance energy levels.",
+      "The plan must be concise and must not include any warnings regarding cross-contamination."
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+    "scenario": "Testing adherence to severe restrictions: Provide inputs for a vegetarian athlete who is also gluten-free, vegan, and has a moderate goal (maintenance). The scenario must test if the output correctly integrates three major, potentially conflicting dietary restrictions into a balanced, actionable day's menu, ensuring no cross-contamination warnings are needed."
+  },
+  {
+    "prompt_inputs": {
+      "height": "200 cm",
+      "weight": "60 kg",
+      "goal": "Cutting phase for marathon peak performance",
+      "restrictions": "None"
+    },
+    "solution_criteria": [
+      "The meal plan must be highly caloric dense while remaining concise (1 day).",
+      "The plan must acknowledge the energy demands of a marathon athlete despite the 'cutting' goal.",
+      "The structure must be easy to read and follow for immediate use."
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+    "scenario": "Testing boundary conditions with extreme metrics: Use inputs for a very tall, very light athlete with an extreme goal (e.g., cutting for a marathon peak performance). The scenario should test if the plan generates high caloric density recommendations while still being concise, and if it properly accounts for a low body weight relative to height."
+  },
+  {
+    "prompt_inputs": {
+      "height": "175",
+      "weight": "75",
+      "goal": "Improving long-term cognitive function and focus for an athlete.",
+      "restrictions": "None"
+    },
+    "solution_criteria": [
+      "The plan must prioritize foods rich in Omega-3 fatty acids (e.g., salmon, walnuts, flaxseed) over simple caloric density.",
+      "The plan must be structured as a complete, concise 1-day meal itinerary (Breakfast, Lunch, Dinner, Snack).",
+      "The language used must be directive, providing specific, actionable meal suggestions rather than general food groups."
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+    "scenario": "Testing ambiguity and advanced goal setting: Use inputs for a moderately sized athlete whose goal is non-traditional (e.g., 'improving cognitive function' rather than just 'weight loss'). The scenario must test if the model generates a plan that focuses on macronutrient ratios appropriate for brain health (e.g., Omega-3 rich foods) rather than just brute-force calorie counting."
+  }
+]
