@@ -1,6 +1,8 @@
 import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+import ast
 import json
+import re
 import requests
 from statistics import mean
 from settings import API_URL, MODEL, HEADERS, PROVIDER
@@ -40,11 +42,48 @@ def run_prompt(test_case):
 Please solve the following task:
 
 {test_case["task"]}
+
+* Respond only with Python, JSON, or a plain Regex
+* Do not add any comments or commentary or explanation
 """
     messages = []
     add_user_message(messages, prompt)
     output = chat(messages)
     return output
+
+
+def validate_json(text):
+    try:
+        json.loads(text.strip())
+        return 10
+    except json.JSONDecodeError:
+        return 0
+
+
+def validate_python(text):
+    try:
+        ast.parse(text.strip())
+        return 10
+    except SyntaxError:
+        return 0
+
+
+def validate_regex(text):
+    try:
+        re.compile(text.strip())
+        return 10
+    except re.error:
+        return 0
+
+
+def grade_syntax(response, test_case):
+    fmt = (test_case.get("format") or test_case.get("required_artifact_type", "")).lower()
+    if "json" in fmt:
+        return validate_json(response)
+    elif "python" in fmt:
+        return validate_python(response)
+    else:
+        return validate_regex(response)
 
 
 def grade_by_model(test_case, output):
@@ -89,8 +128,11 @@ Example response shape:
             eval_text = eval_text.split("```")[1]
             if eval_text.startswith("json"):
                 eval_text = eval_text[4:]
-        return json.loads(eval_text.strip())
-    raise RuntimeError("grade_by_model: received null content from API after 3 attempts")
+        try:
+            return json.loads(eval_text.strip())
+        except json.JSONDecodeError:
+            continue
+    raise RuntimeError("grade_by_model: failed to get valid JSON from API after 3 attempts")
 
 
 def run_test_case(test_case):
@@ -98,8 +140,11 @@ def run_test_case(test_case):
     output = run_prompt(test_case)
 
     model_grade = grade_by_model(test_case, output)
-    score = model_grade["score"]
+    model_score = model_grade["score"]
     reasoning = model_grade["reasoning"]
+
+    syntax_score = grade_syntax(output, test_case)
+    score = (model_score + syntax_score) / 2
 
     return {
         "output": output,
