@@ -100,6 +100,11 @@ Solution to Evaluate:
 {output}
 </solution>
 
+Criteria you should use to evaluate the solution:
+<criteria>
+{test_case.get("solution_criteria", "Evaluate correctness, clarity, and adherence to AWS best practices.")}
+</criteria>
+
 Output Format
 Provide your evaluation as a structured JSON object with the following fields, in this specific order:
 - "strengths": An array of 1-3 key strengths
