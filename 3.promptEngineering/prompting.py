@@ -412,22 +412,25 @@ if __name__ == "__main__":
 
     dataset_file = os.path.join(os.path.dirname(__file__), "dataset.json")
 
-    print("Generating dataset...")
-    evaluator.generate_dataset(
-        task_description="Write a compact, concise 1 day meal plan for a single athlete",
-        prompt_inputs_spec={
-            "height": "Athlete's height in cm",
-            "weight": "Athlete's weight in kg",
-            "goal": "Goal of the athlete",
-            "restrictions": "Dietary restrictions of the athlete",
-        },
-        output_file=dataset_file,
-        num_cases=3,
-    )
+    if os.path.exists(dataset_file):
+        print(f"Using existing dataset: {dataset_file}")
+    else:
+        print("Generating dataset...")
+        evaluator.generate_dataset(
+            task_description="Write a compact, concise 1 day meal plan for a single athlete",
+            prompt_inputs_spec={
+                "height": "Athlete's height in cm",
+                "weight": "Athlete's weight in kg",
+                "goal": "Goal of the athlete",
+                "restrictions": "Dietary restrictions of the athlete",
+            },
+            output_file=dataset_file,
+            num_cases=3,
+        )
 
     def run_prompt(prompt_inputs):
         prompt = f"""
-What should this person eat?
+Generate a one-day meal plan for an athlete that meets their dietary restrictions.
 
 - Height: {prompt_inputs["height"]}
 - Weight: {prompt_inputs["weight"]}
