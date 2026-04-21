@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prompt Evaluation Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; color: #333; }
+        .header { background-color: #f0f0f0; padding: 20px; border-radius: 5px; margin-bottom: 20px; }
+        .summary-stats { display: flex; gap: 10px; flex-wrap: wrap; }
+        .stat-box { background: #fff; border-radius: 5px; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,.1); flex-basis: 30%; min-width: 200px; }
+        .stat-value { font-size: 24px; font-weight: bold; margin-top: 5px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { background-color: #4a4a4a; color: white; text-align: left; padding: 12px; }
+        td { padding: 10px; border-bottom: 1px solid #ddd; vertical-align: top; width: 20%; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .score { font-weight: bold; padding: 5px 10px; border-radius: 3px; display: inline-block; }
+        .score-high { background-color: #c8e6c9; color: #2e7d32; }
+        .score-medium { background-color: #fff9c4; color: #f57f17; }
+        .score-low { background-color: #ffcdd2; color: #c62828; }
+        pre { background: #f5f5f5; border: 1px solid #ddd; border-radius: 4px; padding: 10px;
+               font-family: monospace; font-size: 13px; white-space: pre-wrap; word-wrap: break-word; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Prompt Evaluation Report</h1>
+        <div class="summary-stats">
+            <div class="stat-box"><div>Total Test Cases</div><div class="stat-value">3</div></div>
+            <div class="stat-box"><div>Average Score</div><div class="stat-value">2.3 / 10</div></div>
+            <div class="stat-box"><div>Pass Rate (≥7)</div><div class="stat-value">0.0%</div></div>
+        </div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Scenario</th><th>Prompt Inputs</th><th>Solution Criteria</th>
+                <th>Output</th><th>Score</th><th>Reasoning</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>Testing adherence to severe restrictions: Provide inputs for a vegetarian athlete who is also gluten-free, vegan, and has a moderate goal (maintenance). The scenario must test if the output correctly integrates three major, potentially conflicting dietary restrictions into a balanced, actionable day's menu, ensuring no cross-contamination warnings are needed.</td>
+                <td><strong>height:</strong> 175<br><strong>weight:</strong> 68<br><strong>goal:</strong> maintenance<br><strong>restrictions:</strong> Vegan, Gluten-Free, Vegetarian</td>
+                <td>• The output must be a complete, actionable 1-day meal plan.<br>• The plan must strictly adhere to Vegan, Gluten-Free, and Vegetarian dietary requirements (no animal products or gluten sources).<br>• The meal plan must demonstrate nutritional balance suitable for an athlete aiming for maintenance energy levels.<br>• The plan must be concise and must not include any warnings regarding cross-contamination.</td>
+                <td><pre>***Disclaimer: I am an AI language model and not a registered dietitian or medical professional. The following is a sample nutritional guide and meal plan based on general dietary guidelines. Given your specific constraints (Vegan, Gluten-Free, etc.), it is highly recommended that you consult with a Registered Dietitian (RD) who can tailor a plan to your precise metabolism, activity level, and health needs.***
+
+***
+
+## 🥑 Nutritional Profile Summary
+
+Based on your profile, your primary dietary constraints are **Vegan** and **Gluten-Free**.
+
+*   **Goal:** Maintenance (Meaning your caloric intake should generally match your average daily expenditure.)
+*   **Energy Estimate:** For a moderately active individual with your stats, your estimated caloric maintenance range is likely between **1,800 to 2,200 calories** per day. *Adjust this range up or down by 200–300 calories based on how your weight and energy levels respond to the plan.*
+
+### 💡 Key Nutritional Focus Points for Your Diet
+
+Eating a vegan, gluten-free diet requires careful planning to ensure you get enough of certain essential nutrients that are often lacking in plant-based diets:
+
+1.  **Protein:** Must be consistent. Focus on combining sources throughout the day (e.g., beans + rice, nuts + seeds).
+2.  **Vitamin B12:** This is the most critical supplement. B12 is found almost exclusively in animal products. **You must supplement B12.**
+3.  **Calcium:** Consume fortified plant milks (soy or almond), tofu, and dark leafy greens.
+4.  **Iron:** Pair iron-rich plant foods (lentils, spinach) with Vitamin C sources (citrus fruits, bell peppers) to maximize absorption.
+5.  **Omega-3 Fatty Acids (DHA/EPA):** Include ground flax seeds, chia seeds, and walnuts daily. Consider an algae-based Omega-3 supplement.
+
+***
+
+## 🍽️ Sample Meal Plan (Maintenance Focus)
+
+This plan is designed to be nutrient-dense, easily prepared, and entirely plant-based and gluten-free.
+
+### ☀️ Breakfast Ideas (Focus: Fiber & Sustained Energy)
+
+*   **Overnight Oats (GF):** Certified GF oats soaked in fortified plant milk (soy milk is highest in protein), mixed with chia seeds and topped with berries.
+*   **Tofu Scramble:** Scrambled firm tofu with turmeric (for color), nutritional yeast (for cheesy flavor and B vitamins), sautéed spinach, and bell peppers. Served with GF toast.
+*   **Green Smoothie:** Plant milk, a handful of spinach, 1 tbsp flax seeds, 1 scoop vegan protein powder (pea/rice blend), and a banana.
+
+### 🥗 Lunch Ideas (Focus: Protein & Volume)
+
+*   **Mediterranean Chickpea Bowl:** Chickpeas, chopped cucumber, cherry tomatoes, Kalamata olives, red onion, mixed with a lemon-tahini dressing. Serve over a bed of mixed greens.
+*   **Quinoa Power Salad:** Cooked quinoa mixed with black beans, corn, avocado chunks, and a squeeze of lime.
+*   **Hummus & Veggie Wrap:** Use large collard green leaves or GF tortilla wraps. Fill with hummus, grated carrots, sprouts, and chopped roasted veggies.
+
+### 🍲 Dinner Ideas (Focus: Complex Carbs & Variety)
+
+*   **Lentil Curry:** Red lentils cooked in a sauce of coconut milk, curry spices, and served over brown rice. Add steamed kale.
+*   **Black Bean and Veggie Tacos:** Corn tortillas (GF) filled with seasoned black beans, sweet potatoes, and sautéed mushrooms. Top with salsa and guacamole.
+*   **Stir-fry:** Brown rice noodles (GF) tossed with edamame, broccoli, carrots, tofu cubes, and tamari (GF soy sauce).
+
+### 🍎 Snack Ideas (Focus: Healthy Fats & Quick Nutrients)
+
+*   A handful of raw nuts and seeds (almonds, walnuts, pumpkin seeds).
+*   Apple slices with 2 tbsp peanut butter or almond butter.
+*   Edamame pods (steamed).
+*   Rice cakes topped with avocado and "everything bagel" seasoning (check for GF).
+
+***
+
+## 🛒 Essential Grocery List Checklist
+
+When shopping, always double-check labels to ensure the items are certified **Vegan** and **Gluten-Free**.
+
+| Category | Recommended Items | Function/Why It's Needed |
+| :--- | :--- | :--- |
+| **Protein Sources** | Lentils (red, green), Chickpeas, Black Beans, Tofu (firm/silken), Edamame, Tempeh, Nutritional Yeast | Primary source of amino acids and satiety. |
+| **Grains/Starches (GF)** | Quinoa, Brown Rice, Certified GF Oats, Sweet Potatoes, Corn Tortillas | Provides energy and complex carbohydrates. |
+| **Healthy Fats/Seeds** | Avocado, Chia Seeds, Flax Seeds, Walnuts, Almonds, Tahini (sesame paste) | Provides healthy monounsaturated and omega-3 fats. |
+| **Dairy Alternatives** | Fortified Plant Milk (Soy or Almond), Vegan Yogurt, Calcium-Set Tofu | Provides necessary Calcium and Vitamin D. |
+| **Vitamins & Supplements** | **Vitamin B12 Supplement**, Omega-3 Supplement (Algae-based), Vitamin D Supplement | Critical for addressing nutrient gaps in vegan diets. |
+| **Produce** | Spinach, Kale, Bell Peppers, Berries, Citrus Fruits, Broccoli, Brussels Sprouts | Source of Vitamin C, antioxidants, and fiber. |</pre></td>
+                <td><span class="score score-low">1</span></td>
+                <td>The solution is highly informative and nutritionally sound in its advice, but it fundamentally fails to meet the core structural requirements of the task. The prompt demanded a single, quantified, actionable 1-day plan, including specific caloric totals, macronutrient breakdowns, and precise portions/timing. The provided solution gives general 'ideas' and extensive educational content, but never synthesizes these into the required mandatory format. Because it fails all three mandatory requirements (Caloric Total, Macros, Specific Portions/Timing), it cannot score above 3.</td>
+            </tr>
+
+            <tr>
+                <td>Testing boundary conditions with extreme metrics: Use inputs for a very tall, very light athlete with an extreme goal (e.g., cutting for a marathon peak performance). The scenario should test if the plan generates high caloric density recommendations while still being concise, and if it properly accounts for a low body weight relative to height.</td>
+                <td><strong>height:</strong> 200 cm<br><strong>weight:</strong> 60 kg<br><strong>goal:</strong> Cutting phase for marathon peak performance<br><strong>restrictions:</strong> None</td>
+                <td>• The meal plan must be highly caloric dense while remaining concise (1 day).<br>• The plan must acknowledge the energy demands of a marathon athlete despite the 'cutting' goal.<br>• The structure must be easy to read and follow for immediate use.</td>
+                <td><pre>***Disclaimer: I am an AI and not a registered dietitian or medical doctor. Given your extreme height and low body weight for that height, it is absolutely critical that you consult with a sports nutritionist or physician before starting any drastic dietary change. Prioritizing fueling and energy intake is more important than focusing solely on "cutting" at this time. Your focus needs to be on energy density and performance fuel first.***
+
+---
+
+## 🏃‍♂️ Dietary Strategy: Optimized Performance Fueling
+
+Your current profile (200 cm, 60 kg) indicates a very low Body Mass Index (BMI). For endurance training like marathon running, your body is your most valuable asset. The primary goal of your diet must be **Muscle Preservation and Energy Availability** first, and body composition optimization second.
+
+We will shift the focus from a severe "cut" to an **Optimized Body Composition Phase**—meaning you are creating a mild, sustainable caloric deficit *after* ensuring you are adequately fueled to train at peak performance.
+
+### 🥇 Core Nutritional Principles
+
+| Nutrient | Function for Marathon Runner | Best Sources to Prioritize |
+| :--- | :--- | :--- |
+| **Carbohydrates** | Primary, most efficient fuel source for endurance. Must be consistently high. | Oats, Quinoa, Brown Rice, Sweet Potatoes, Whole Grain Bread, Bananas, Berries. |
+| **Protein** | Critical for muscle repair (especially post-run) and minimizing muscle catabolism during a cut. | Lean Chicken, Fish (Salmon, Tuna), Greek Yogurt, Lentils, Beans, Tofu, Egg Whites. |
+| **Healthy Fats** | Essential for vitamin absorption, hormone balance, and reducing inflammation (a major concern for long-distance runners). | Avocado, Nuts (Walnuts, Almonds), Seeds (Chia, Flax), Olive Oil, Fatty Fish. |
+| **Electrolytes** | Sodium, Potassium, Magnesium. Crucial for nerve function and preventing severe cramping/fatigue. | Salt/Broths (Sodium), Bananas/Sweet Potatoes (Potassium), Leafy Greens (Magnesium). |
+
+### 🍎 Macronutrient Focus Breakdown
+
+1.  **Carbohydrates (55–60% of Calories):** These should be nutrient-dense, focusing on **complex carbs** for steady energy throughout the day. Simple carbs should be reserved for the immediate pre- and post-run windows.
+2.  **Protein (25–30% of Calories):** Aim to consume a protein source with every single meal and snack. This is non-negotiable for muscle preservation.
+3.  **Healthy Fats (15–20% of Calories):** Don't fear fat. Incorporate it through meal preparation (olive oil, avocado) rather than relying on high-fat, processed snacks.
+
+---
+
+### 🍽️ Sample Day Menu Plan (Highly Adaptable)
+
+**🔑 Key Rule: Fuel Timing is Everything.** Eat a small, easily digestible carb source 30–60 minutes before running. Consume a meal rich in protein and carbs within 60 minutes after running.
+
+#### ☀️ Morning Fuel (Pre-Run/Breakfast)
+*   **Goal:** Quick energy, moderate protein.
+*   **Example 1 (Quick):** Oatmeal made with milk/almond milk, topped with berries, chia seeds, and a drizzle of honey.
+*   **Example 2 (Meal):** 2–3 Scrambled eggs (or egg whites) on one slice of whole-grain toast, served with half an avocado.
+
+#### 🏋️ Mid-Day Fuel (Lunch)
+*   **Goal:** Sustained, complex energy, high volume.
+*   **Example:** Large salad base (mixed greens) topped with:
+    *   Lean protein (e.g., 150g grilled chicken or canned chickpeas).
+    *   Complex carb source (e.g., 1 cup cooked quinoa or brown rice).
+    *   Plenty of healthy fats (e.g., sliced cucumber, bell peppers, and an olive oil/lemon dressing).
+
+#### ⚡ Pre-Run/Afternoon Snack
+*(Adjust based on run timing)*
+*   **If running soon:** Banana with a tablespoon of peanut butter.
+*   **If running was earlier:** Greek yogurt (plain, high protein) with granola and a handful of walnuts.
+
+#### 🍽️ Evening Fuel (Dinner)
+*   **Goal:** Deep recovery, muscle repair, complex nutrients.
+*   **Example:** Baked or grilled salmon (excellent source of Omega-3 fats) with:
+    *   A large serving of steamed or roasted sweet potatoes (complex carb).
+    *   Roasted asparagus or steamed broccoli (fiber and minerals).
+
+#### 🌙 Before Bed (Optional Snack)
+*   **Goal:** Slow-digesting protein to feed muscles overnight.
+*   **Example:** Small cup of cottage cheese or casein protein shake.
+
+---
+
+### 🚀 Critical Considerations for Endurance Athletes
+
+1.  **Hydration & Electrolytes:** This is often overlooked. You must drink water consistently throughout the day, not just when thirsty. For long runs, always replace electrolytes (sodium, potassium) via sports drinks or a pinch of salt in your meal prep.
+2.  **Fiber Management:** While fiber is healthy, high amounts immediately before or during a long run can cause GI distress. On heavy training days, slightly reduce the volume of fibrous vegetables/grains closer to the run time.
+3.  **Gut Health:** Focus on fermented foods (kimchi, plain yogurt) to keep your gut flora strong, as gut health is directly linked to energy absorption and immunity.
+4.  **Listen to Your Body:** If you feel fatigued, lightheaded, or constantly hungry, you are under-fueling. *Prioritize the calorie intake necessary to complete your training safely.*
+
+### 📋 Summary Checklist
+
+| ✅ DO | ❌ AVOID |
+| :--- | :--- |
+| **✅ Complex Carbs:** Oats, sweet potatoes, quinoa. | **❌ Simple Sugars:** Candy, sugary sodas, packaged baked goods. |
+| **✅ Lean Proteins:** Fish, Greek yogurt, beans, lentils. | **❌ Processed Foods:** Anything deep-fried or packaged in artificial sauces. |
+| **✅ Healthy Fats:** Avocado, nuts, olive oil, salmon. | **❌ Excessive Alcohol:** Disrupts sleep, hydration, and nutrient absorption. |
+| **✅ Electrolytes:** Salt, broth, banana. | **❌ Restriction Panic:** Do not drop critical food groups (like carbs) just to "cut." |</pre></td>
+                <td><span class="score score-low">3</span></td>
+                <td>The solution is outstanding in terms of content quality, safety advice, and structural readability. It correctly identifies the primary risk (under-fueling a high-BMI athlete) and provides expert-level guidance. However, the evaluation criteria included mandatory requirements that *must* be met: a daily caloric total, a specific macro breakdown (grams/percentages), and a fully quantified, single-day plan. The solution provides ratios and examples, but never calculates or presents the required quantitative totals. Because the failure to meet these mandatory, non-negotiable requirements automatically caps the score at 3 or lower, the high quality of the content cannot overcome this structural failure.</td>
+            </tr>
+
+            <tr>
+                <td>Testing ambiguity and advanced goal setting: Use inputs for a moderately sized athlete whose goal is non-traditional (e.g., 'improving cognitive function' rather than just 'weight loss'). The scenario must test if the model generates a plan that focuses on macronutrient ratios appropriate for brain health (e.g., Omega-3 rich foods) rather than just brute-force calorie counting.</td>
+                <td><strong>height:</strong> 175<br><strong>weight:</strong> 75<br><strong>goal:</strong> Improving long-term cognitive function and focus for an athlete.<br><strong>restrictions:</strong> None</td>
+                <td>• The plan must prioritize foods rich in Omega-3 fatty acids (e.g., salmon, walnuts, flaxseed) over simple caloric density.<br>• The plan must be structured as a complete, concise 1-day meal itinerary (Breakfast, Lunch, Dinner, Snack).<br>• The language used must be directive, providing specific, actionable meal suggestions rather than general food groups.</td>
+                <td><pre>***Disclaimer: I am an AI and not a registered dietitian or medical professional. This advice is for informational purposes only. Given your goal of improving long-term cognitive function and athletic performance, it is highly recommended that you consult with a sports nutritionist or a physician to create a tailored meal plan.***
+
+Based on your goal—optimizing for *both* physical endurance and long-term cognitive health—your diet needs to be extremely nutrient-dense, focusing on stable energy release and powerful anti-inflammatory agents.
+
+Here is a comprehensive guide to what you should eat, categorized by function.
+
+---
+
+## 🧠 The Cognitive Fuel Focus (The Brain)
+
+Your brain runs on glucose, but it also needs fats and specific vitamins to maintain synaptic function and fight oxidative stress.
+
+### 1. Omega-3 Fatty Acids (DHA/EPA)
+These are critical for building brain and nerve cell membranes.
+*   **Sources:** Fatty fish (salmon, mackerel, sardines), walnuts, flaxseeds, chia seeds.
+*   **Goal:** Aim to eat fatty fish at least 2–3 times per week.
+
+### 2. Antioxidants (Berries and Deep Colors)
+Antioxidants combat "oxidative stress" which is linked to age-related cognitive decline.
+*   **Sources:** Blueberries (the gold standard), blackberries, cherries, spinach, kale.
+*   **Tip:** Keep a bowl of mixed berries readily available for snacks.
+
+### 3. B Vitamins and Choline
+These vitamins are necessary for energy metabolism and neurotransmitter production.
+*   **Sources:** Eggs (choline), dark leafy greens (B9/Folate), lean poultry, salmon.
+
+## 💪 The Athletic Performance Focus (The Body)
+
+As an athlete, your body needs sustained, high-quality fuel for endurance, and protein for rapid muscle repair.
+
+### 1. Complex Carbohydrates (Sustained Energy)
+These provide a steady, slow-release stream of glucose, preventing the energy crashes that hurt focus.
+*   **Sources:** Oats (steel-cut or rolled), quinoa, brown rice, sweet potatoes, beans, and lentils.
+*   **Avoid:** Sugary cereals, white bread, pastries, and soda, as these cause rapid spikes and crashes.
+
+### 2. Lean Protein (Repair and Satiety)
+Protein is essential for repairing muscle fibers after exercise and keeping you feeling full, which helps maintain focus.
+*   **Sources:** Chicken breast, fish, eggs, Greek yogurt (unflavored, plain), tofu, lentils, and edamame.
+
+### 3. Healthy Fats (Sustained Digestion)
+These fats provide dense, long-lasting energy and regulate hormone balance.
+*   **Sources:** Avocado, olive oil, almonds, walnuts, and pumpkin seeds.
+
+---
+
+## 🍽️ A Sample Meal Structure
+
+To keep your energy stable throughout the day, focus on combining a healthy fat, a source of protein, and a complex carbohydrate at every major meal.
+
+| Meal | Focus | Example Plate |
+| :--- | :--- | :--- |
+| **Breakfast** | Complex Carbs + Protein + Fiber | Oatmeal topped with walnuts, chia seeds, blueberries, and a scoop of protein powder or plain Greek yogurt. |
+| **Mid-Morning Snack** | Quick Focus Boost | Handful of almonds and a piece of fruit (apple or pear). |
+| **Lunch** | Protein + Complex Carbs + Greens | Large salad with grilled salmon or chickpeas, quinoa, avocado, and mixed greens dressed with olive oil. |
+| **Pre-Workout Snack (30-60 min before)** | Quick, Digestible Carbs | Banana with a tablespoon of nut butter. |
+| **Dinner** | Protein + Complex Carbs + Veggies | Baked chicken or tofu with a side of roasted sweet potatoes and steamed kale. |
+| **Optional Bedtime Snack** | Slow-digesting Protein | Cottage cheese or a small handful of mixed nuts. |
+
+---
+
+## ✨ Key Dietary Principles & Tips
+
+### 1. Hydration is Non-Negotiable
+Even mild dehydration can severely impact focus, mood, and athletic performance.
+*   **Rule:** Drink water consistently throughout the day.
+*   **Enhancement:** Add electrolytes (e.g., a pinch of sea salt or a little lemon juice) to water during intense training days.
+
+### 2. Meal Timing Matters (The "Why" of Eating)
+*   **Pre-Workout:** Focus on **quick, easily digested carbohydrates** (like bananas or apples) for immediate fuel. Keep protein moderate.
+*   **Post-Workout:** Focus on a combination of **protein** (for repair) and **complex carbs** (to replenish glycogen stores).
+*   **Before Bed:** Focus on **protein and healthy fats** (like cottage cheese or walnuts) to keep the brain nourished overnight.
+
+### 3. Food to Limit or Minimize
+While "none" is your restriction, certain items can negatively impact your goals:
+
+*   **Refined Sugars:** White bread, candy, soda, packaged baked goods. (Cause energy crashes).
+*   **Trans Fats/Highly Processed Oils:** Deep-fried foods, margarines. (Inflammatory and detrimental to long-term health).
+*   **Excessive Alcohol:** While enjoyable, alcohol is disruptive to sleep quality and cognitive function, which are essential for athletes.
+
+### 🏆 The Ultimate Summary for Your Goal
+
+If you only remember three things, remember these:
+
+1.  **Eat Fatty Fish:** For the Omega-3s that fuel your brain.
+2.  **Prioritize Whole Carbs:** For sustained, even energy levels.
+3.  **Don't Skip the Water:** Optimal hydration is the easiest way to boost focus.</pre></td>
+                <td><span class="score score-low">3</span></td>
+                <td>The solution is highly informative and nutritionally sound, earning high marks for content quality and adherence to secondary criteria (Omega-3 focus, directive language). However, the evaluation criteria include mandatory requirements that must be met for any passing score. The solution completely fails to provide the mandatory daily caloric total, the macronutrient breakdown, or a fully quantified meal plan with specific portions and timing. Because these mandatory requirements are non-negotiable, the solution automatically fails the task, regardless of the quality of the advice provided.</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
