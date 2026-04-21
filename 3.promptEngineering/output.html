@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prompt Evaluation Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; color: #333; }
+        .header { background-color: #f0f0f0; padding: 20px; border-radius: 5px; margin-bottom: 20px; }
+        .summary-stats { display: flex; gap: 10px; flex-wrap: wrap; }
+        .stat-box { background: #fff; border-radius: 5px; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,.1); flex-basis: 30%; min-width: 200px; }
+        .stat-value { font-size: 24px; font-weight: bold; margin-top: 5px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { background-color: #4a4a4a; color: white; text-align: left; padding: 12px; }
+        td { padding: 10px; border-bottom: 1px solid #ddd; vertical-align: top; width: 20%; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .score { font-weight: bold; padding: 5px 10px; border-radius: 3px; display: inline-block; }
+        .score-high { background-color: #c8e6c9; color: #2e7d32; }
+        .score-medium { background-color: #fff9c4; color: #f57f17; }
+        .score-low { background-color: #ffcdd2; color: #c62828; }
+        pre { background: #f5f5f5; border: 1px solid #ddd; border-radius: 4px; padding: 10px;
+               font-family: monospace; font-size: 13px; white-space: pre-wrap; word-wrap: break-word; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Prompt Evaluation Report</h1>
+        <div class="summary-stats">
+            <div class="stat-box"><div>Total Test Cases</div><div class="stat-value">3</div></div>
+            <div class="stat-box"><div>Average Score</div><div class="stat-value">9.0 / 10</div></div>
+            <div class="stat-box"><div>Pass Rate (≥7)</div><div class="stat-value">100.0%</div></div>
+        </div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Scenario</th><th>Prompt Inputs</th><th>Solution Criteria</th>
+                <th>Output</th><th>Score</th><th>Reasoning</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>Testing adherence to severe restrictions: Provide inputs for a vegetarian athlete who is also gluten-free, vegan, and has a moderate goal (maintenance). The scenario must test if the output correctly integrates three major, potentially conflicting dietary restrictions into a balanced, actionable day's menu, ensuring no cross-contamination warnings are needed.</td>
+                <td><strong>height:</strong> 175<br><strong>weight:</strong> 68<br><strong>goal:</strong> maintenance<br><strong>restrictions:</strong> Vegan, Gluten-Free, Vegetarian</td>
+                <td>• The output must be a complete, actionable 1-day meal plan.<br>• The plan must strictly adhere to Vegan, Gluten-Free, and Vegetarian dietary requirements (no animal products or gluten sources).<br>• The meal plan must demonstrate nutritional balance suitable for an athlete aiming for maintenance energy levels.<br>• The plan must be concise and must not include any warnings regarding cross-contamination.</td>
+                <td><pre>Here’s a budget-friendly, one-day meal plan tailored for a 175 cm, 68 kg athlete in maintenance mode with **Vegan, Gluten-Free, and Vegetarian** dietary restrictions. Total daily calories: **~2,500 kcal** (split into 45% carbs, 30% protein, 25% fat). All portion sizes are in grams.  
+
+---
+
+### **Breakfast (7:00 AM)**  
+**Oatmeal + Plant-Based Protein Smoothie**  
+- **Gluten-free oats (40g cooked)**  
+- **Unsweetened plant-based protein powder (pea or rice, 30g scooped)**  
+- **Banana (1 medium, 118g)**  
+- **Almond butter (2 tbsp, 30g)**  
+- **Coconut milk (1/4 cup, 60g)**  
+
+**Macros per meal**: 520 kcal | 45g carbs | 35g protein | 18g fat  
+
+---
+
+### **Snack 1 (10:30 AM)**  
+**Energy Bites + Fruit**  
+- ** Rolled oats (30g)**  
+- **Ground flaxseed (1 tbsp, 9g)**  
+- **Almond butter (1 tbsp, 14g)**  
+- **Dates (5 pitted, 25g)**  
+- **Apple (1 medium, 182g)**  
+
+**Macros per meal**: 410 kcal | 60g carbs | 12g protein | 15g fat  
+
+---
+
+### **Lunch (1:00 PM)**  
+**Quinoa-Chickpea Salad**  
+- **Cooked quinoa (100g)**  
+- **Chickpeas (100g cooked)**  
+- **Mixed veggies (bell peppers, cucumber, cherry tomatoes, 150g total)**  
+- **Olive oil (1 tbsp, 14g)**  
+- **Lemon juice (2 tbsp, 30ml)**  
+
+**Macros per meal**: 620 kcal | 75g carbs | 25g protein | 30g fat  
+
+---
+
+### **Snack 2 (4:00 PM)**  
+**Roasted Chickpeas + Hummus**  
+- **Chickpeas (80g roasted)**  
+- **Gluten-free hummus (60ml)**  
+- **Cucumber slices (50g)**  
+
+**Macros per meal**: 400 kcal | 50g carbs | 10g protein | 18g fat  
+
+---
+
+### **Dinner (7:30 PM)**  
+**Tempeh Stir-Fry with Gluten-Free Rice**  
+- **Tempeh (150g cooked)**  
+- **Gluten-free brown rice (100g cooked)**  
+- **Stir-fried veggies (broccoli, carrots, snap peas, 150g)**  
+- **Tamari sauce (1 tbsp, 15ml)**  
+
+**Macros per meal**: 680 kcal | 65g carbs | 35g protein | 22g fat  
+
+---
+
+### **Evening Snack (9:00 PM)**  
+**Chia Pudding**  
+- **Gluten-free oats (30g)**  
+- **Chia seeds (2 tbsp, 15g)**  
+- **Almond milk (1/2 cup, 120ml)**  
+- **Blueberries (50g)**  
+
+**Macros per meal**: 320 kcal | 55g carbs | 8g protein | 10g fat  
+
+---
+
+### **Summary**  
+- **Total Daily Calories**: 2,550 kcal (adjust portion sizes slightly for exact maintenance).  
+- **Macros**:  
+  - Carbs: ~335g  
+  - Protein: ~115g  
+  - Fat: ~83g  
+
+**Budget Tips**:  
+- Buy oats, beans, and staples in bulk.  
+- Use seasonal produce.  
+- Opt for store-brand plant-based protein powders or make your own energy bites.  
+
+All foods are vegan, gluten-free, and vegetarian-friendly. Adjust based on personal taste or availability! 🥗
+</pre></td>
+                <td><span class="score score-high">10</span></td>
+                <td>The solution satisfies every mandatory requirement: it lists a full daily caloric total, a macronutrient summary, and detailed meals with exact ingredients, portions, and times. All foods comply with vegan, gluten‑free, and vegetarian standards, and the plan is concise and free of disallowed content. Therefore it meets all criteria at the highest level.</td>
+            </tr>
+
+            <tr>
+                <td>Testing boundary conditions with extreme metrics: Use inputs for a very tall, very light athlete with an extreme goal (e.g., cutting for a marathon peak performance). The scenario should test if the plan generates high caloric density recommendations while still being concise, and if it properly accounts for a low body weight relative to height.</td>
+                <td><strong>height:</strong> 200 cm<br><strong>weight:</strong> 60 kg<br><strong>goal:</strong> Cutting phase for marathon peak performance<br><strong>restrictions:</strong> None</td>
+                <td>• The meal plan must be highly caloric dense while remaining concise (1 day).<br>• The plan must acknowledge the energy demands of a marathon athlete despite the 'cutting' goal.<br>• The structure must be easy to read and follow for immediate use.</td>
+                <td><pre>Okay, here's a one-day meal plan tailored for a 200cm (6'7") athlete weighing 60kg (132lbs) in a cutting phase for marathon peak performance, with no dietary restrictions.  This plan prioritizes lean protein, complex carbohydrates, and healthy fats to support training, recovery, and fat loss while maintaining energy levels.  **Please read the important disclaimers at the end of this plan.**
+
+**Estimated Daily Calorie Target:**  Given the height, weight, and goal, a calorie target of approximately **1800-2200 calories** is a reasonable starting point. This is a *cut* phase, so we'll aim for the lower end initially and adjust based on progress and training intensity.  We'll target around **2000 calories** for this plan.  This is a *very* lean individual, so careful monitoring is crucial.
+
+**Macronutrient Breakdown (approximate):**
+
+*   **Protein:** 120-150g (2-2.5g/kg) - Crucial for muscle preservation during a cut.
+*   **Carbohydrates:** 200-250g - Fuel for training and glycogen replenishment.
+*   **Fat:** 50-70g - Essential for hormone production and overall health.
+
+**Meal Plan:**
+
+**1. Pre-Workout Breakfast (7:00 AM - Before Morning Run/Workout)**
+
+*   **Oatmeal (50g dry weight):** 195 calories, 6g protein, 3g fat, 33g carbs
+*   **Protein Powder (30g whey isolate):** 110 calories, 24g protein, 1g fat, 3g carbs
+*   **Blueberries (80g):** 50 calories, 1g protein, 0g fat, 13g carbs
+*   **Almonds (15g):** 90 calories, 3g protein, 8g fat, 3g carbs
+*   **Total:** ~445 calories, 34g protein, 12g fat, 52g carbs
+
+**2. Post-Workout Recovery Meal (9:30 AM - Immediately After Morning Run/Workout)**
+
+*   **Chicken Breast (150g cooked):** 165 calories, 31g protein, 3.6g fat, 0g carbs
+*   **Sweet Potato (150g cooked):** 130 calories, 2g protein, 0g fat, 30g carbs
+*   **Broccoli (100g cooked):** 34 calories, 2.8g protein, 0.4g fat, 6.6g carbs
+*   **Total:** ~329 calories, 35.8g protein, 4g fat, 36.6g carbs
+
+**3. Mid-Day Lunch (12:30 PM)**
+
+*   **Tuna (120g canned in water, drained):** 130 calories, 29g protein, 1g fat, 0g carbs
+*   **Quinoa (75g cooked):** 111 calories, 4g protein, 2g fat, 20g carbs
+*   **Mixed Greens Salad (100g):** 20 calories, 1g protein, 0g fat, 3g carbs
+*   **Olive Oil & Vinegar Dressing (1 tbsp = 14g):** 120 calories, 0g protein, 14g fat, 0g carbs
+*   **Total:** ~381 calories, 34g protein, 17g fat, 23g carbs
+
+**4. Afternoon Snack (3:30 PM)**
+
+*   **Greek Yogurt (170g, plain, non-fat):** 100 calories, 18g protein, 0g fat, 6g carbs
+*   **Apple (1 medium, 182g):** 95 calories, 0.5g protein, 0.3g fat, 25g carbs
+*   **Total:** ~195 calories, 18.5g protein, 0.3g fat, 31g carbs
+
+**5. Dinner (6:30 PM)**
+
+*   **Salmon (120g cooked):** 208 calories, 22g protein, 13g fat, 0g carbs
+*   **Brown Rice (100g cooked):** 111 calories, 2.6g protein, 1g fat, 23g carbs
+*   **Asparagus (150g cooked):** 40 calories, 3.7g protein, 0.3g fat, 7g carbs
+*   **Total:** ~359 calories, 28.3g protein, 14.3g fat, 30g carbs
+
+**6. Evening Snack (Optional - 9:00 PM - If still hungry, adjust earlier meals)**
+
+*   **Casein Protein Shake (30g):** 120 calories, 24g protein, 1g fat, 3g carbs
+*   **Total:** ~120 calories, 24g protein, 1g fat, 3g carbs
+
+**Daily Totals (Approximate):**
+
+*   **Calories:** ~1930
+*   **Protein:** ~144.6g
+*   **Fat:** ~50.9g
+*   **Carbohydrates:** ~175.2g
+
+**Budget-Friendly Notes:**
+
+*   Canned tuna is significantly cheaper than fresh.
+*   Oats are a very affordable carbohydrate source.
+*   Frozen vegetables (broccoli, asparagus) are often cheaper than fresh and just as nutritious.
+*   Chicken breast can be bought in bulk and frozen.
+*   Greek yogurt is often on sale.
+
+**Important Disclaimers:**
+
+*   **Individual Needs Vary:** This is a *sample* meal plan. Your specific calorie and macronutrient needs will depend on your individual metabolism, training volume, intensity, and body composition.  It's *highly recommended* to work with a registered dietitian or sports nutritionist to personalize a plan.
+*   **Hydration:** This plan does *not* include hydration.  Marathon runners need to drink significantly more water than average.  Electrolyte replacement is also crucial, especially during and after training.
+*   **Listen to Your Body:** Pay attention to how you feel. Adjust portion sizes and meal timing based on your energy levels, hunger cues, and performance.
+*   **Gradual Changes:** Don't make drastic changes to your diet all at once. Gradually reduce calories and adjust macronutrient ratios to allow your body to adapt.
+*   **Medical Conditions:** If you have any underlying medical conditions, consult with your doctor before making significant changes to your diet.
+*   **Supplementation:** This plan does not include supplements.  Discuss any potential supplementation with a healthcare professional.
+*   **Marathon Specifics:** As you get closer to the marathon, you may need to adjust carbohydrate intake (carb-loading) based on your coach's recommendations.
+
+
+
+**To help me refine this plan further, could you tell me:**
+
+*   What is your typical daily training volume (miles per week)?
+*   What is the intensity of your training (easy, moderate, hard)?
+*   Are there any foods you particularly dislike or have difficulty accessing?</pre></td>
+                <td><span class="score score-high">10</span></td>
+                <td>The solution adheres strictly to the criteria by prioritizing caloric density, addressing energy demands for a cutting phase, and maintaining simplicity. No violations occur, ensuring compliance with all specified constraints.</td>
+            </tr>
+
+            <tr>
+                <td>Testing ambiguity and advanced goal setting: Use inputs for a moderately sized athlete whose goal is non-traditional (e.g., 'improving cognitive function' rather than just 'weight loss'). The scenario must test if the model generates a plan that focuses on macronutrient ratios appropriate for brain health (e.g., Omega-3 rich foods) rather than just brute-force calorie counting.</td>
+                <td><strong>height:</strong> 175<br><strong>weight:</strong> 75<br><strong>goal:</strong> Improving long-term cognitive function and focus for an athlete.<br><strong>restrictions:</strong> None</td>
+                <td>• The plan must prioritize foods rich in Omega-3 fatty acids (e.g., salmon, walnuts, flaxseed) over simple caloric density.<br>• The plan must be structured as a complete, concise 1-day meal itinerary (Breakfast, Lunch, Dinner, Snack).<br>• The language used must be directive, providing specific, actionable meal suggestions rather than general food groups.</td>
+                <td><pre>## One-Day Meal Plan for an Athlete (Cognitive Focus)
+
+This meal plan is designed for an athlete with a height of 175cm and a weight of 75kg, aiming to improve long-term cognitive function and focus. It provides a daily calorie target of **2800 calories**, with a focus on balanced macronutrients and nutrient-dense foods.  It's budget-friendly too!
+
+
+
+**Important Notes:**
+*   **Individual Needs:** This is a general plan. Adjust portion sizes based on your hunger levels and training intensity. 
+*   **Hydration:** Drink plenty of water throughout the day (at least 3-4 liters).  Consider electrolyte drinks after intense training.
+*   **Timing is Key:** Adjust meal timings to fit your training schedule. 
+*   **Variety:** Don't stick to this plan every day! Vary your food choices within similar categories to ensure a wide range of nutrients.
+*   **Supplements:** This plan focuses on whole foods. Consider a multivitamin if you have concerns about nutrient intake, but it's best to get nutrients from food.
+
+
+
+---
+
+**Meal 1: Breakfast (7:00 AM) -  ~650 Calories**
+
+*   **Oatmeal with Berries & Nuts:**
+    *   Rolled Oats (50g): 195 calories, 6g protein, 33g carbs, 3g fat
+    *   Blueberries (100g): 57 calories, 1g protein, 14g carbs, 0.5g fat
+    *   Mixed Nuts (30g): 180 calories, 6g protein, 6g carbs, 15g fat
+    *   Chia Seeds (10g): 45 calories, 2g protein, 5g carbs, 3.5g fat
+    *   Almond Milk (250ml): 120 calories, 1g protein, 15g carbs, 4g fat
+*   **Coffee/Tea:** (0 Calories)  Optional
+
+**Total Macronutrients: ~650 Calories - 14g Protein - 80g Carbs - 26g Fat**
+
+
+
+---
+
+**Meal 2: Mid-Morning Snack (10:30 AM) - ~350 Calories**
+
+*   **Greek Yogurt with Fruit & Granola:**
+    *   Plain Greek Yogurt (200g): 140 calories, 25g protein, 7g carbs, 0g fat
+    *   Banana (100g): 105 calories, 1g protein, 27g carbs, 0.4g fat
+    *   Granola (30g): 120 calories, 3g protein, 15g carbs, 5g fat
+
+**Total Macronutrients: ~350 Calories - 29g Protein - 79g Carbs - 5.4g Fat**
+
+
+
+---
+
+**Meal 3: Lunch (1:00 PM) - ~750 Calories**
+
+*   **Chicken & Quinoa Salad:**
+    *   Grilled Chicken Breast (180g): 330 calories, 65g protein, 0g carbs, 5g fat
+    *   Quinoa (150g cooked): 222 calories, 8g protein, 39g carbs, 4g fat
+    *   Mixed Greens (100g): 10 calories, 1g protein, 2g carbs, 0g fat
+    *   Cucumber (100g): 8 calories, 0.3g protein, 2g carbs, 0g fat
+    *   Bell Peppers (50g): 15 calories, 0.5g protein, 3g carbs, 0.2g fat.
+    *   Olive Oil & Vinegar Dressing (1 tbsp): 120 calories, 0g protein, 0g carbs, 14g fat
+
+**Total Macronutrients: ~750 Calories - 74g Protein - 44g Carbs - 23g Fat**
+
+
+
+---
+
+**Meal 4: Pre-Workout Snack (4:00 PM) - ~300 Calories ( ~30-60 minutes before workout)**
+
+*   **Apple with Almond Butter:**
+    *   Apple (1 medium): 95 calories, 0.5g protein, 25g carbs, 0.3g fat
+    *   Almond Butter (1 tbsp): 95 calories, 3g protein, 3g carbs, 9g fat
+
+**Total Macronutrients: ~300 Calories - 3.5g Protein - 28g Carbs - 9.3g Fat**
+
+
+
+---
+
+**Meal 5: Post-Workout Meal (7:00 PM) - ~600 Calories**
+
+*   **Salmon with Sweet Potato & Broccoli:**
+    *   Salmon (150g): 320 calories, 30g protein, 0g carbs, 18g fat
+    *   Sweet Potato (150g): 220 calories, 4g protein, 48g carbs, 0.2g fat
+    *   Broccoli (100g): 30 calories, 2.6g protein, 6g carbs, 0.4g fat
+*  **Whole Wheat Bread (2 slice):** 140 Calories, 5g Protein, 25g carbs, 2g fat
+
+**Total Macronutrients: ~600 Calories - 37.6g Protein - 89g Carbs - 20.6g Fat**
+
+
+
+
+---
+
+**Meal 6: Evening Snack (9:30 PM) - ~ 200 Calories**
+
+*   **Casein Protein Pudding:**
+    * 1 scoop (30g) Casein Protein powder: 120 Calories - 25g protein, 3g carbs, 2g fat
+    * Unsweetened Almond Milk (100ml): 30 Calories - 1g protein, 1g carbs, 0g fat
+    * 1 tbsp Chia seeds: 60 Calories - 2g protein , 5g carbs, 4g fat
+
+**Total Macronutrients: ~200 Calories - 28g Protein - 9 carbs - 6g fat**
+
+
+
+---
+
+**Daily Totals (Approximate):**
+
+*   **Calories:** 2800
+*   **Protein:** 148g
+*   **Carbohydrates:** 304g
+*   **Fat:** 72.9g  
+
+
+
+**Disclaimer:** This meal plan is a suggestion and should be reviewed by a registered dietitian or healthcare professional to ensure it meets your specific nutritional needs and any underlying health conditions.
+
+
+
+</pre></td>
+                <td><span class="score score-medium">7</span></td>
+                <td>The solution largely meets the mandatory requirements by providing a detailed meal plan with caloric and macronutrient information. It successfully structures the plan as a complete 1-day itinerary. However, it falls short of the secondary criteria, particularly regarding the prioritization of Omega-3 fatty acids and the lack of specific cost-saving suggestions. The plan is a good starting point but requires refinement to better align with the prompt's nuances.</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
