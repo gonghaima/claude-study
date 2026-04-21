@@ -13,6 +13,8 @@ A collection of Python scripts demonstrating how to interact with LLMs via REST 
 | `1.accessingClaudeWithTheAPI/temperature.py` | Temperature demo — compares low vs high temperature outputs |
 | `1.accessingClaudeWithTheAPI/structured_data.py` | Structured data extraction — uses stop sequences to extract clean code blocks |
 | `2.promptEvaluation/generate_dataset.py` | Dataset generation — generates a JSON evaluation dataset of AWS-related coding tasks |
+| `2.promptEvaluation/run_eval.py` | Prompt evaluation — runs model-based and syntax-based grading across all dataset test cases |
+| `3.promptEngineering/prompting.py` | Prompt engineering — iterative evaluator with concurrent dataset generation, model grading, and HTML report output |
 
 ## Provider Configuration
 
@@ -142,5 +144,23 @@ The dataset is saved to `2.promptEvaluation/dataset.json`.
 
 ```bash
 venv/bin/python 2.promptEvaluation/generate_dataset.py
-./venv/bin/python3 2.promptEvaluation/run_eval.py  
+./venv/bin/python3 2.promptEvaluation/run_eval.py
 ```
+
+## Prompt Engineering
+
+`3.promptEngineering/prompting.py` implements a `PromptEvaluator` class for iterative prompt improvement. The workflow:
+
+1. **Generate a dataset** — automatically creates diverse test cases for your prompt
+2. **Run a baseline prompt** — evaluates a naive first attempt to establish a score
+3. **Iterate** — apply prompt engineering techniques and re-run to measure improvement
+
+The evaluator uses concurrent API calls, model-based grading with mandatory/secondary criteria, and produces both a JSON results file and a colour-coded HTML report.
+
+### Run
+
+```bash
+./venv/bin/python3 3.promptEngineering/prompting.py
+```
+
+Output files are written to `3.promptEngineering/output.json` and `3.promptEngineering/output.html`.
