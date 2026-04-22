@@ -432,11 +432,12 @@ if __name__ == "__main__":
         prompt = f"""
 Generate a one-day meal plan for an athlete that meets their dietary restrictions.
 
-
+<athlete_information>
 - Height: {prompt_inputs["height"]}
 - Weight: {prompt_inputs["weight"]}
 - Goal: {prompt_inputs["goal"]}
 - Dietary restrictions: {prompt_inputs["restrictions"]}
+</athlete_information>
 
 Guidelines:
 1. Include accurate daily calorie amount

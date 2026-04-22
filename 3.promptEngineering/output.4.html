@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prompt Evaluation Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; color: #333; }
+        .header { background-color: #f0f0f0; padding: 20px; border-radius: 5px; margin-bottom: 20px; }
+        .summary-stats { display: flex; gap: 10px; flex-wrap: wrap; }
+        .stat-box { background: #fff; border-radius: 5px; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,.1); flex-basis: 30%; min-width: 200px; }
+        .stat-value { font-size: 24px; font-weight: bold; margin-top: 5px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { background-color: #4a4a4a; color: white; text-align: left; padding: 12px; }
+        td { padding: 10px; border-bottom: 1px solid #ddd; vertical-align: top; width: 20%; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .score { font-weight: bold; padding: 5px 10px; border-radius: 3px; display: inline-block; }
+        .score-high { background-color: #c8e6c9; color: #2e7d32; }
+        .score-medium { background-color: #fff9c4; color: #f57f17; }
+        .score-low { background-color: #ffcdd2; color: #c62828; }
+        pre { background: #f5f5f5; border: 1px solid #ddd; border-radius: 4px; padding: 10px;
+               font-family: monospace; font-size: 13px; white-space: pre-wrap; word-wrap: break-word; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Prompt Evaluation Report</h1>
+        <div class="summary-stats">
+            <div class="stat-box"><div>Total Test Cases</div><div class="stat-value">3</div></div>
+            <div class="stat-box"><div>Average Score</div><div class="stat-value">7.3 / 10</div></div>
+            <div class="stat-box"><div>Pass Rate (≥7)</div><div class="stat-value">100.0%</div></div>
+        </div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Scenario</th><th>Prompt Inputs</th><th>Solution Criteria</th>
+                <th>Output</th><th>Score</th><th>Reasoning</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>Testing adherence to severe restrictions: Provide inputs for a vegetarian athlete who is also gluten-free, vegan, and has a moderate goal (maintenance). The scenario must test if the output correctly integrates three major, potentially conflicting dietary restrictions into a balanced, actionable day's menu, ensuring no cross-contamination warnings are needed.</td>
+                <td><strong>height:</strong> 175<br><strong>weight:</strong> 68<br><strong>goal:</strong> maintenance<br><strong>restrictions:</strong> Vegan, Gluten-Free, Vegetarian</td>
+                <td>• The output must be a complete, actionable 1-day meal plan.<br>• The plan must strictly adhere to Vegan, Gluten-Free, and Vegetarian dietary requirements (no animal products or gluten sources).<br>• The meal plan must demonstrate nutritional balance suitable for an athlete aiming for maintenance energy levels.<br>• The plan must be concise and must not include any warnings regarding cross-contamination.</td>
+                <td><pre>**One-Day Meal Plan for an Athlete**  
+*(Vegan, Gluten-Free, Vegetarian, Caloric Needs: ~2000 kcal)*  
+
+### **Breakfast (7:00 AM)**  
+**Portions:**  
+- 150g *certified gluten-free quinoa* (~200 kcal, 18g protein, 4g fat, 41g carbs)  
+- 50g *chia seeds* (~40 kcal, 2g protein, 7g fat, 5g carbs)  
+- 100g *spinach, kale, and 50g cucumber* (~150 kcal, 2g protein, 1g fat, 33g carbs)  
+- 25g *almonds* (160 kcal, 9g protein, 15g fat, 2g carbs)  
+
+### **Lunch (12:00 PM)**  
+**Portions:**  
+- 180g *cooked lentils* (270 kcal, 15g protein, 15g fat, 62g carbs)  
+- 100g *cubed sweet potato* (~150 kcal, 4g protein, 23g carbs, 6g fat)  
+- 20g *roasted chickpeas* (~100 kcal, 11g protein, 8g fat, 20g carbs)  
+- 1 cup *buffalo cauliflower soup* (~70 kcal, 2g protein, 2g fat, 11g carbs)  
+
+### **Dinner (6:00 PM)**  
+**Portions:**  
+- 120g *baked tofu* (150 kcal, 20g protein, 10g fat, 20g carbs)  
+- 70g *brown rice* (~100 kcal, 2g protein, 2g fat, 46g carbs)  
+- 50g *broccoli and bell peppers* (~80 kcal, 4g protein, 3g fat, 5g carbs)  
+
+**Total Daily Totals:**  
+- **Calories:** ~1,500 kcal (adjust portions slightly for accuracy).  
+- **Protein:** ~50–60g (balanced across meals).  
+- **Fat:** ~35g (plant-based focus).  
+- **Carbs:** ~120g (adequate for energy).  
+- **Budget-Friendly:** Uses affordable staples like lentils, quinoa, and seasonal veggies.  
+
+**Notes:**  
+- All meals adhere to vegan, gluten-free, and vegetarian criteria (no animal products, no gluten).  
+- Nutrient distribution prioritizes sustained energy and recovery support.  
+- Portions scaled for maintenance without excess calories.  
+
+This plan ensures compliance with dietary restrictions while optimizing macros for athletic performance.</pre></td>
+                <td><span class="score score-medium">7</span></td>
+                <td>The solution fulfills the mandatory requirements by providing a meal plan with specific foods, portions, timing, caloric total, and macronutrient breakdown, while adhering to the dietary restrictions. However, the stated caloric goal of 2000 kcal is not met by the provided meal plan, and the macronutrient breakdown is not precise. The solution also includes a note that is not required.</td>
+            </tr>
+
+            <tr>
+                <td>Testing boundary conditions with extreme metrics: Use inputs for a very tall, very light athlete with an extreme goal (e.g., cutting for a marathon peak performance). The scenario should test if the plan generates high caloric density recommendations while still being concise, and if it properly accounts for a low body weight relative to height.</td>
+                <td><strong>height:</strong> 200 cm<br><strong>weight:</strong> 60 kg<br><strong>goal:</strong> Cutting phase for marathon peak performance<br><strong>restrictions:</strong> None</td>
+                <td>• The meal plan must be highly caloric dense while remaining concise (1 day).<br>• The plan must acknowledge the energy demands of a marathon athlete despite the 'cutting' goal.<br>• The structure must be easy to read and follow for immediate use.</td>
+                <td><pre>Here's a budget-friendly, one-day meal plan optimized for a 200 cm, 60 kg athlete in a cutting phase for marathon performance. It prioritizes high-quality carbs for energy, adequate protein for recovery, and balanced fats, all while hitting a daily calorie target of **2,500 kcal** (adjustable based on individual needs).
+
+---
+
+### **Day 1 Meal Plan**
+**Total Daily Macros:**  
+**Protein: 115g** | **Carbs: 280g** | **Fat: 85g**  
+*(Adjust portions slightly if calories need adjustment)*
+
+---
+
+#### **Meals & Portions (in grams)**  
+**1. Breakfast (8:00 AM)**  
+- **Quinoa porridge**: 45g dry quinoa (cooked)  
+  *Calories: 135 kcal | Carbs: 19g | Protein: 4g | Fat: 2g*  
+- **3 whole eggs** (scrambled)  
+  *Calories: 210 kcal | Carbs: 1g | Protein: 18g | Fat: 15g*  
+- **Banana**, 1 medium (115g)  
+  *Calories: 105 kcal | Carbs: 26g | Protein: 1g | Fat: 0.5g*  
+
+**Total: 450 kcal | Carbs: 46g | Protein: 23g | Fat: 17g**
+
+---
+
+**2. Mid-Morning Snack (9:30 AM)**  
+- **Cottage cheese**, 150g  
+  *Calories: 100 kcal | Carbs: 3g | Protein: 16g | Fat: 3g*  
+- **Whole grain crackers**, 3 slices (15g each)  
+  *Calories: 75 kcal | Carbs: 17g | Protein: 5g | Fat: 0.5g*  
+
+**Total: 175 kcal | Carbs: 20g | Protein: 21g | Fat: 3.5g**
+
+---
+
+**3. Lunch (1:00 PM)**  
+- **Grilled chicken thighs**, 200g (boneless, skinless)  
+  *Calories: 180 kcal | Carbs: 0g | Protein: 40g | Fat: 9g*  
+- **Brown rice**, 125g cooked  
+  *Calories: 150 kcal | Carbs: 31g | Protein: 2g | Fat: 1g*  
+- **Steamed mixed veggies** (broccoli, carrots), 150g  
+  *Calories: 35 kcal | Carbs: 7g | Protein: 3g | Fat: 0.5g*  
+
+**Total: 365 kcal | Carbs: 38g | Protein: 45g | Fat: 10.5g**
+
+---
+
+**4. Afternoon Snack (3:30 PM)**  
+- **Whole wheat bread**, 2 slices (50g each)  
+  *Calories: 150 kcal | Carbs: 30g | Protein: 6g | Fat: 1g*  
+- **Peanut butter**, 2 tbsp (32g)  
+  *Calories: 190 kcal | Carbs: 7g | Protein: 8g | Fat: 16g*  
+- **Apple**, 1 medium (130g)  
+  *Calories: 120 kcal | Carbs: 31g | Protein: 0.3g | Fat: 0g*  
+
+**Total: 360 kcal | Carbs: 68g | Protein: 14g | Fat: 17g**
+
+---
+
+**5. Dinner (7:00 PM)**  
+- **Salmon fillet**, 125g (wild-caught, baked)  
+  *Calories: 220 kcal | Carbs: 0g | Protein: 45g | Fat: 16g*  
+- **Sweet potato**, 100g baked  
+  *Calories: 84 kcal | Carbs: 22g | Protein: 2g | Fat: 0.3g*  
+- **Steamed broccoli**, 150g  
+  *Calories: 48 kcal | Carbs: 9g | Protein: 3g | Fat: 2g*  
+
+**Total: 352 kcal | Carbs: 33g | Protein: 50g | Fat: 18.3g**
+
+---
+
+**6. Evening Snack (9:00 PM)**  
+- **Greek yogurt**, 100g + **strawberries** (100g)  
+  *Calories: 135 kcal | Carbs: 13g | Protein: 10g | Fat: 4g*  
+
+**Total: 135 kcal | Carbs: 13g | Protein: 10g | Fat: 4g**
+
+---
+
+### **Total Daily Totals**  
+**Calories: 1,772 kcal**  
+**Protein: 149g** | **Carbs: 216g** | **Fat: 69g**  
+
+**Adjustments Needed**:  
+To reach **2,500 kcal**, increase carb portions (e.g., add an extra 50g cooked brown rice for +115 kcal and 13g carbs) or add a snack like a protein bar (200 kcal).  
+
+**Cost-Saving Tips**:  
+- Use Boneless chicken thighs instead of breast (cheaper per gram).  
+- Substitute salmon with canned tuna (1 can = ~100g, ~180 kcal, 30g protein).  
+- Buy oats and frozen veggies in bulk.  
+
+---
+
+### **Notes**  
+- **Protein**: Meets 2.5g/kg (130g) without supplements, using eggs, poultry, and dairy.  
+- **Carbs**: Slightly reduced to support cutting but includes energy-dense options (rice, sweet potato).  
+- **Fats**: Moderate for hormone balance; olive oil and nuts added as needed.  
+
+Consult a sports nutritionist to fine-tune macros based on training load and body composition goals.
+</pre></td>
+                <td><span class="score score-high">8</span></td>
+                <td>The solution delivers a detailed, structured plan that meets core nutritional goals for a marathon athlete in a cutting phase. It balances macros, includes practical food choices, and provides a clear daily structure. However, it lacks advanced customization notes and detailed prep guidance, which are critical for elite performance.</td>
+            </tr>
+
+            <tr>
+                <td>Testing ambiguity and advanced goal setting: Use inputs for a moderately sized athlete whose goal is non-traditional (e.g., 'improving cognitive function' rather than just 'weight loss'). The scenario must test if the model generates a plan that focuses on macronutrient ratios appropriate for brain health (e.g., Omega-3 rich foods) rather than just brute-force calorie counting.</td>
+                <td><strong>height:</strong> 175<br><strong>weight:</strong> 75<br><strong>goal:</strong> Improving long-term cognitive function and focus for an athlete.<br><strong>restrictions:</strong> None</td>
+                <td>• The plan must prioritize foods rich in Omega-3 fatty acids (e.g., salmon, walnuts, flaxseed) over simple caloric density.<br>• The plan must be structured as a complete, concise 1-day meal itinerary (Breakfast, Lunch, Dinner, Snack).<br>• The language used must be directive, providing specific, actionable meal suggestions rather than general food groups.</td>
+                <td><pre>**Meal Plan for Cognitive Function & Focus (1 Day)**  
+**Total Daily Calories:** ~2,600 kcal  
+**macros:** 140g protein | 90g fat | 360g carbs  
+
+---
+
+### **Breakfast: 7:30 AM (15% of calories)**  
+**Oatmeal with Blueberries, Almonds, and Chia Seeds**  
+- 50g rolled oats (cooked in 400ml water)  
+- 100g fresh blueberries  
+- 20g slivered almonds  
+- 10g chia seeds  
+- 200ml whole milk (optional, add for extra calories)  
+
+**Nutrition per serving:**  
+- Calories: 450 kcal  
+- Protein: 15g | Fat: 20g | Carbs: 55g  
+
+---
+
+### **Mid-Morning Snack: 10:30 AM (2% of calories)**  
+**Greek Yogurt with Walnuts and Honey**  
+- 150g plain Greek yogurt (full-fat)  
+- 10g walnuts (halved)  
+- 1 tsp honey  
+
+**Nutrition per serving:**  
+- Calories: 200 kcal  
+- Protein: 12g | Fat: 10g | Carbs: 18g  
+
+---
+
+### **Lunch: 1:00 PM (28% of calories)**  
+**Quinoa Bowl with Grilled Chicken, Avocado, and Leafy Greens**  
+- 80g cooked quinoa  
+- 120g grilled chicken breast (seasoned with herbs and olive oil)  
+- 50g sliced avocado  
+- 100g mixed leafy greens (spinach/kale)  
+- 1 tbsp olive oil (drizzled on salad)  
+
+**Nutrition per serving:**  
+- Calories: 600 kcal  
+- Protein: 35g | Fat: 35g | Carbs: 60g  
+
+---
+
+### **Afternoon Snack: 4:00 PM (2% of calories)**  
+**Apple Slices with Almond Butter**  
+- 1 medium apple (sliced)  
+- 2 tbsp almond butter (natural, no added sugar)  
+
+**Nutrition per serving:**  
+- Calories: 250 kcal  
+- Protein: 8g | Fat: 15g | Carbs: 30g  
+
+---
+
+### **Pre-Workout Snack (if active): 6:30 PM**  
+**Smoothie with Leafy Greens and Protein Powder**  
+- 1 scoop whey protein powder (vanilla or unflavored)  
+- 1 cup frozen mixed berries  
+- 1 tbsp flaxseeds  
+- 200ml water or unsweetened almond milk  
+
+**Nutrition per serving:**  
+- Calories: 250 kcal  
+- Protein: 20g | Fat: 10g | Carbs: 40g  
+
+---
+
+### **Dinner: 7:30 PM (25% of calories)**  
+**Baked Salmon with Sweet Potato and steamed Broccoli**  
+- 150g wild-caught salmon (baked with lemon and herbs)  
+- 100g roasted sweet potato (cubed and seasoned)  
+- 100g steamed broccoli (tossed with olive oil)  
+
+**Nutrition per serving:**  
+- Calories: 600 kcal  
+- Protein: 40g | Fat: 30g | Carbs: 60g  
+
+---
+
+### **Evening Snack: 9:30 PM (5% of calories)**  
+**Handful of Mixed Nuts and Dark Chocolate**  
+- 30g mixed nuts (walnuts, almonds, cashews)  
+- 1 square (20g) dark chocolate (85% cocoa)  
+
+**Nutrition per serving:**  
+- Calories: 300 kcal  
+- Protein: 8g | Fat: 25g | Carbs: 20g  
+
+---
+
+**Notes:**  
+- **Hydration:** Drink 3–4L water daily. Add electrolytes (e.g., 1 tsp Himalayan salt in 500ml water) for focus.  
+- **Sleep:** Prioritize 7–9 hours of sleep to support cognitive recovery.  
+- **Cost Tips:** Use frozen berries (cheaper than fresh), buy quinoa in bulk, and opt for seasonal veggies.  
+
+This plan prioritizes omega-3s (fatty fish, chia, walnuts), antioxidants (berries), and sustained energy (whole grains, complex carbs) to enhance focus and long-term brain health.
+</pre></td>
+                <td><span class="score score-medium">7</span></td>
+                <td>The solution meets most secondary criteria with strong Omega-3 prioritization, clear meal structure, and directive language. However, critical percentage-calorie mismatches and conditional/ambiguous snack timing undermine consistency and completeness as a full 1-day itinerary, resulting in a gap that prevents a top score.</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
