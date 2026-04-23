@@ -1,0 +1,63 @@
+[
+  {
+    "output": "Here is a one-day meal plan for an athlete aiming for maintenance that is Vegan and Gluten-Free:\n\n*   **Calorie Target:** Approximately 2,400 calories\n*   **Macronutrient Breakdown:** Protein (110g), Fat (75g), Carbs (315g)\n\n**Meal Plan:**\n\n*   **Breakfast (7:00 AM):** Gluten-free oats (80g dry weight) cooked with soy milk (240g), topped with sliced banana (100g) and chia seeds (15g).\n    *   Protein: 22g, Fat: 12g, Carbs: 65g\n*   **Mid-Morning Snack (10:00 AM):** Apple (150g) with almond butter (30g).\n    *   Protein: 8g, Fat: 16g, Carbs: 25g\n*   **Lunch (1:00 PM):** Quinoa (80g dry weight) bowl with chickpeas (150g cooked), steamed spinach (100g), diced cucumber (50g), and tahini dressing (30g).\n    *   Protein: 28g, Fat: 18g, Carbs: 75g\n*   **Afternoon Snack (4:00 PM):** Vegan soy yogurt (170g) with blueberries (100g) and pumpkin seeds (20g).\n    *   Protein: 15g, Fat: 12g, Carbs: 30g\n*   **Dinner (7:00 PM):** Firm tofu (200g), saut\u00e9ed with broccoli (150g), carrots (50g), and brown rice (75g dry weight) using a gluten-free tamari soy sauce (15g).\n    *   Protein: 32g, Fat: 12g, Carbs: 85g\n*   **Evening Snack (9:00 PM):** Walnuts (20g) and a small piece of dark chocolate (20g).\n    *   Protein: 5g, Fat: 15g, Carbs: 35g\n\nThis meal plan focuses on high-quality plant-based proteins (tofu, soy, legumes) and complex gluten-free carbohydrates to maintain energy levels and muscle mass for an athlete.",
+    "test_case": {
+      "prompt_inputs": {
+        "height": "175",
+        "weight": "68",
+        "goal": "maintenance",
+        "restrictions": "Vegan, Gluten-Free, Vegetarian"
+      },
+      "solution_criteria": [
+        "The output must be a complete, actionable 1-day meal plan.",
+        "The plan must strictly adhere to Vegan, Gluten-Free, and Vegetarian dietary requirements (no animal products or gluten sources).",
+        "The meal plan must demonstrate nutritional balance suitable for an athlete aiming for maintenance energy levels.",
+        "The plan must be concise and must not include any warnings regarding cross-contamination."
+      ],
+      "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+      "scenario": "Testing adherence to severe restrictions: Provide inputs for a vegetarian athlete who is also gluten-free, vegan, and has a moderate goal (maintenance). The scenario must test if the output correctly integrates three major, potentially conflicting dietary restrictions into a balanced, actionable day's menu, ensuring no cross-contamination warnings are needed."
+    },
+    "score": 10,
+    "reasoning": "The solution is excellent. It follows every instruction, including the negative constraint to avoid cross-contamination warnings. It provides a complete, actionable plan with precise measurements (grams) and timings. The nutritional math is consistent with the provided targets, and the dietary restrictions are strictly respected (using soy milk, tofu, and tamari to ensure vegan/GF compliance). It meets the 'compact and concise' requirement without sacrificing the 'exact portions' requirement."
+  },
+  {
+    "output": "Here is a one-day meal plan for an athlete aiming to cut weight and maintain performance:\n\n*   **Calorie Target:** Approximately 2400 calories\n*   **Macronutrient Breakdown:** Protein (160g), Fat (80g), Carbs (280g)\n\n**Meal Plan:**\n\n*   **Breakfast (7:00 AM):** Egg whites (200g) scrambled with spinach (100g) and a slice of whole-wheat toast (60g).  Skim milk (240ml).\n    *   Protein: 40g, Fat: 10g, Carbs: 40g\n*   **Mid-Morning Snack (10:00 AM):**  Protein shake made with whey protein (30g), water (240ml), and a small amount of berries (50g).\n    *   Protein: 30g, Fat: 2g, Carbs: 15g\n*   **Lunch (1:00 PM):**  Chicken breast (150g) grilled, mixed green salad with cherry tomatoes (50g), cucumber (50g), and a light olive oil and vinegar dressing (20g).\n    *   Protein: 45g, Fat: 15g, Carbs: 30g\n*   **Afternoon Snack (4:00 PM):**  Greek yogurt (200g, non-fat) with a few slices of apple (75g).\n    *   Protein: 25g, Fat: 0g, Carbs: 30g\n*   **Dinner (7:00 PM):**  Lean ground turkey (180g) stir-fry with broccoli (150g), bell peppers (50g), and brown rice (75g cooked).\n    *   Protein: 50g, Fat: 25g, Carbs: 65g\n*   **Evening Snack (9:00 PM):** Cottage Cheese (150g, low-fat).\n    *   Protein: 30g, Fat: 5g, Carbs: 5g\n\nThis meal plan focuses on high protein, moderate fat, and controlled carbohydrate intake, crucial for a cutting phase. It emphasizes lean protein sources, incorporates non-starchy vegetables, and aims for a balanced macronutrient profile to support athletic performance and promote fat loss.\n",
+    "test_case": {
+      "prompt_inputs": {
+        "height": "200 cm",
+        "weight": "60 kg",
+        "goal": "Cutting phase for marathon peak performance",
+        "restrictions": "None"
+      },
+      "solution_criteria": [
+        "The meal plan must be highly caloric dense while remaining concise (1 day).",
+        "The plan must acknowledge the energy demands of a marathon athlete despite the 'cutting' goal.",
+        "The structure must be easy to read and follow for immediate use."
+      ],
+      "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+      "scenario": "Testing boundary conditions with extreme metrics: Use inputs for a very tall, very light athlete with an extreme goal (e.g., cutting for a marathon peak performance). The scenario should test if the plan generates high caloric density recommendations while still being concise, and if it properly accounts for a low body weight relative to height."
+    },
+    "score": 5,
+    "reasoning": "The solution meets all mandatory output requirements (daily calories, macro breakdown, detailed meals with portions and timing) and is presented in a concise, readable format. However, it falls short on the secondary criteria: the calorie level is modest rather than highly calorie\u2011dense, and it does not meaningfully address the substantial energy needs of a marathon runner, resulting in significant gaps in relevance for the target athlete."
+  },
+  {
+    "output": "<athlete_information>\n- Height: 175  \n- Weight: 75  \n- Goal: Improving long-term cognitive function and focus for an athlete.  \n- Dietary restrictions: None  \n</athlete_information>\n\n<ideal_output>\nHere is a one-day meal plan for an athlete aiming to enhance cognitive function and sustain focus:  \n\n*   **Calorie Target:** ~2500 calories  \n*   **Macronutrient Breakdown:** Protein (35g), Fat (65g), Carbohydrates (600g)  \n\n**Meal Plan:**  \n\n*   **Breakfast (7:00 AM):** 200g Greek yogurt with 100g mixed berries and 20g flaxseeds. 150ml skim milk.  \n  *   Protein: 25g | Fat: 5g | Carbs: 45g  \n\n*   **Mid-Morning Snack (10:00 AM):** 120g almonds + 30g banana (slices).  \n  *   Protein: 8g | Fat: 17g | Carbs: 28g  \n\n*   **Lunch (1:00 PM):** 150g grilled chicken breast salad with quinoa (100g), chickpeas (50g), spinach (50g), olive oil dressing. 1 slice whole-grain bread (50g).  \n  *   Protein: 35g | Fat: 20g | Carbs: 130g  \n\n*   **Afternoon Snack (4:00 PM):** 100g lentils + carrot sticks (50g) + 15g trail mix.  \n  *   Protein: 20g | Fat: 10g | Carbs: 30g  \n\n*   **Dinner (7:00 PM):** 150g baked cod with 70g roasted broccoli and 20g brown rice.  \n  *   Protein: 40g | Fat: 35g | Carbs: 95g  \n\nThis plan prioritizes high-quality proteins, fiber-rich carbs, and healthy fats for sustained energy, aligning with cognitive-boosting needs while staying budget-conscious and restful for athletic performance.\n</ideal_output>",
+    "test_case": {
+      "prompt_inputs": {
+        "height": "175",
+        "weight": "75",
+        "goal": "Improving long-term cognitive function and focus for an athlete.",
+        "restrictions": "None"
+      },
+      "solution_criteria": [
+        "The plan must prioritize foods rich in Omega-3 fatty acids (e.g., salmon, walnuts, flaxseed) over simple caloric density.",
+        "The plan must be structured as a complete, concise 1-day meal itinerary (Breakfast, Lunch, Dinner, Snack).",
+        "The language used must be directive, providing specific, actionable meal suggestions rather than general food groups."
+      ],
+      "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+      "scenario": "Testing ambiguity and advanced goal setting: Use inputs for a moderately sized athlete whose goal is non-traditional (e.g., 'improving cognitive function' rather than just 'weight loss'). The scenario must test if the model generates a plan that focuses on macronutrient ratios appropriate for brain health (e.g., Omega-3 rich foods) rather than just brute-force calorie counting."
+    },
+    "score": 7,
+    "reasoning": "The solution meets all mandatory requirements by providing a daily caloric total, macronutrient breakdown, and detailed meals with exact foods, portions, and timing. It satisfies the secondary criteria of being a complete meal itinerary and using directive language. However, it only partially meets the omega-3 prioritization criterion, as it includes modest amounts of omega-3 sources (flaxseed and cod) rather than making them a central focus. Additionally, the macronutrient breakdown is inconsistent with the stated calorie target and the meal-specific macros, which represents a significant discrepancy. Despite these issues, the solution fulfills the core requirements."
+  }
+]
