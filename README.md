@@ -15,6 +15,7 @@ A collection of Python scripts demonstrating how to interact with LLMs via REST 
 | `2.promptEvaluation/generate_dataset.py` | Dataset generation — generates a JSON evaluation dataset of AWS-related coding tasks |
 | `2.promptEvaluation/run_eval.py` | Prompt evaluation — runs model-based and syntax-based grading across all dataset test cases |
 | `3.promptEngineering/prompting.py` | Prompt engineering — iterative evaluator with concurrent dataset generation, model grading, and HTML report output |
+| `4.tools/001_tools.py` | Tool use — agentic loop with `get_current_datetime`, `add_duration_to_datetime`, and `set_reminder` |
 
 ## Provider Configuration
 
@@ -164,3 +165,13 @@ The evaluator uses concurrent API calls, model-based grading with mandatory/seco
 ```
 
 Output files are written to `3.promptEngineering/output.json` and `3.promptEngineering/output.html`.
+
+## Tool Use
+
+`4.tools/001_tools.py` demonstrates the full agentic tool-calling loop using the same `requests`-based setup as the other scripts. It defines three tools (`get_current_datetime`, `add_duration_to_datetime`, `set_reminder`) and runs them through an agentic loop that feeds tool results back to the model until it stops calling tools.
+
+### Run
+
+```bash
+venv/bin/python 4.tools/001_tools.py
+```
