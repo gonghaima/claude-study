@@ -16,6 +16,7 @@ A collection of Python scripts demonstrating how to interact with LLMs via REST 
 | `2.promptEvaluation/run_eval.py` | Prompt evaluation — runs model-based and syntax-based grading across all dataset test cases |
 | `3.promptEngineering/prompting.py` | Prompt engineering — iterative evaluator with concurrent dataset generation, model grading, and HTML report output |
 | `4.tools/001_tools.py` | Tool use — agentic loop with `get_current_datetime`, `add_duration_to_datetime`, and `set_reminder` |
+| `4.tools/001_tools_007.py` | Multi-turn tool use — extended conversation loop with flexible message handlers and sequential tool chaining |
 
 ## Provider Configuration
 
@@ -174,4 +175,19 @@ Output files are written to `3.promptEngineering/output.json` and `3.promptEngin
 
 ```bash
 venv/bin/python 4.tools/001_tools.py
+```
+
+## Multi-Turn Tool Use
+
+`4.tools/001_tools_007.py` extends the tool use pattern to handle scenarios where the model needs to call multiple tools in sequence to answer a single question (e.g. "What day is 103 days from today?" requires getting today's date first, then adding the duration). Key additions:
+
+- `add_user_message` / `add_assistant_message` accept strings, lists, or full message dicts
+- `text_from_message` extracts readable text from an API response message
+- `run_tools` separates tool execution from the conversation loop
+- `run_conversation` loops until the model stops requesting tools, appending each assistant turn and tool result back into the message history
+
+### Run
+
+```bash
+venv/bin/python 4.tools/001_tools_007.py
 ```
