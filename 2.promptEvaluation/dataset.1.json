@@ -1,0 +1,11 @@
+[
+  {
+    "task": "Generate the AWS IAM JSON policy that grants read-only access (Describe actions) specifically for Amazon DynamoDB tables and Amazon S3 buckets, and nothing else. The output must be a single, complete JSON object."
+  },
+  {
+    "task": "Write a single Regular Expression (Regex) that efficiently extracts all valid AWS Region codes (e.g., 'us-east-1', 'ap-southeast-2', etc.) from a large unstructured text log containing various AWS service mentions and names."
+  },
+  {
+    "task": "Write a simple Python function that accepts a list of AWS EC2 Instance IDs (strings) and calculates the total number of characters used in the combined list of IDs. The function should handle the list input and return an integer representing the total length."
+  }
+]

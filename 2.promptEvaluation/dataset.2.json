@@ -1,0 +1,11 @@
+[
+  {
+    "task": "Generate a minimal JSON policy document (IAM policy) that grants read-only access (s3:GetObject) to all users for a specific S3 bucket named 'my-secure-logs'. The policy should use the 'AWS' principal for the Resource ARN."
+  },
+  {
+    "task": "Write a single Python function using the Boto3 library that takes an S3 bucket name and a prefix string as arguments, and then returns a list of all object keys within that bucket that match the given prefix. Assume the required AWS credentials are already configured."
+  },
+  {
+    "task": "A CloudTrail log entry contains an event ID and the source IP address. Write a Regular Expression (Regex) that can accurately extract the IPv4 address (e.g., 192.168.1.5) from a log line string that follows the pattern 'Source IP: [IP_ADDRESS]'."
+  }
+]

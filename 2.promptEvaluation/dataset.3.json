@@ -1,0 +1,11 @@
+[
+  {
+    "task": "Generate a Python function that takes an S3 bucket name as input and returns a list of all object keys (filenames) within that bucket.  Assume the boto3 library is available."
+  },
+  {
+    "task": "Create a JSON object representing a simple IAM policy granting read-only access to all S3 buckets in an AWS account. Specify the `Version`, `Statement` (with a single `Allow` statement for `s3:GetObject`), and  `Effect` keys."
+  },
+  {
+    "task": "Write a regular expression to validate an AWS resource ID (e.g., `arn:aws:s3:::my-bucket/object.txt`). The regex should ensure the basic ARN structure is correct."
+  }
+]
