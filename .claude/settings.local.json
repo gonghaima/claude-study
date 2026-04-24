@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(source venv/bin/activate)",
+      "Bash(python3 multi_turn.py)",
+      "Bash(python3:*)",
+      "Bash(python streaming.py)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(python structured_data.py)",
+      "Bash(pip3 show:*)",
+      "Bash(echo:*)",
+      "Bash(/Users/stevengong/study/claude-study/venv/bin/python3 --version)",
+      "Bash(/Users/stevengong/study/claude-study/venv/bin/python --version)",
+      "Bash(/Users/stevengong/study/claude-study/venv/bin/pip install:*)",
+      "Bash(/Users/stevengong/study/claude-study/venv/bin/python3 1.accessingClaudeWithTheAPI/main.py)",
+      "Bash(/Users/stevengong/study/claude-study/venv/bin/pip show:*)",
+      "Bash(venv/bin/python 2.promptEvaluation/generate_dataset.py 2>&1)",
+      "Bash(venv/bin/python -c \"\nimport sys, os\nsys.path.insert\\(0, '.'\\)\nimport json, requests\nfrom settings import API_URL, MODEL, HEADERS, PROVIDER\n\nmessages = [\n    {'role': 'user', 'content': 'Say hello in JSON like {\\\\\"msg\\\\\": \\\\\"hello\\\\\"}'},\n    {'role': 'assistant', 'content': '\\\\`\\\\`\\\\`json'},\n]\npayload = {'model': MODEL, 'messages': messages, 'stream': False, 'options': {'temperature': 1.0, 'stop': ['\\\\`\\\\`\\\\`']}}\nr = requests.post\\(API_URL, headers=HEADERS, json=payload\\)\nprint\\('status:', r.status_code\\)\ndata = r.json\\(\\)\nprint\\('full response:', json.dumps\\(data, indent=2\\)\\)\n\" 2>&1k)",
+      "Bash(PROVIDER=openrouter venv/bin/python 2.promptEvaluation/generate_dataset.py 2>&1)",
+      "Bash(venv/bin/python 2.promptEvaluation/run_eval.py 2>&1)",
+      "Bash(python run_eval.py)",
+      "Bash(source /Users/stevengong/study/claude-study/venv/bin/activate)",
+      "Bash(pip install:*)",
+      "Bash(./venv/bin/python3 2.promptEvaluation/run_eval.py 2>&1)",
+      "Bash(./venv/bin/python3 -c \"\nimport sys, os, json, requests\nsys.path.insert\\(0, '.'\\)\nfrom settings import API_URL, MODEL, HEADERS, PROVIDER\n\nmessages = [\n    {'role': 'user', 'content': 'Return a JSON object with key \\\\\"score\\\\\" set to 5.'},\n    {'role': 'assistant', 'content': '\\\\`\\\\`\\\\`json'}\n]\npayload = {'model': MODEL, 'messages': messages, 'temperature': 1.0, 'stop': ['\\\\`\\\\`\\\\`']}\nresponse = requests.post\\(API_URL, headers=HEADERS, json=payload\\)\nprint\\('Status:', response.status_code\\)\ndata = response.json\\(\\)\nprint\\('finish_reason:', data['choices'][0]['finish_reason']\\)\nprint\\('content:', repr\\(data['choices'][0]['message']['content']\\)\\)\n\" 2>&1)",
+      "Bash(./venv/bin/python3 2.promptEvaluation/run_eval.py)",
+      "Bash(wait)",
+      "Bash(./venv/bin/python3 -c \"\nimport ast, sys\nfor f in ['2.promptEvaluation/generate_dataset.py', '2.promptEvaluation/run_eval.py']:\n    with open\\(f\\) as fh:\n        src = fh.read\\(\\)\n    try:\n        ast.parse\\(src\\)\n        print\\(f'OK: {f}'\\)\n    except SyntaxError as e:\n        print\\(f'ERROR in {f}: {e}'\\)\n\")",
+      "Bash(rsvg-convert -w 1920 /Users/stevengong/study/claude-study/3.promptEngineering/001_prompting_diagram.svg -o /Users/stevengong/study/claude-study/3.promptEngineering/001_prompting_diagram.png)",
+      "Bash(./venv/bin/python3 -c \"import ast; ast.parse\\(open\\('3.promptEngineering/prompting.py'\\).read\\(\\)\\); print\\('Syntax OK'\\)\")",
+      "Bash(./venv/bin/python3 3.promptEngineering/prompting.py 2>&1)",
+      "Bash(./venv/bin/python3 3.promptEngineering/prompting.py)"
+    ]
+  }
+}
