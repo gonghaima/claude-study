@@ -17,6 +17,7 @@ A collection of Python scripts demonstrating how to interact with LLMs via REST 
 | `3.promptEngineering/prompting.py` | Prompt engineering — iterative evaluator with concurrent dataset generation, model grading, and HTML report output |
 | `4.tools/001_tools.py` | Tool use — agentic loop with `get_current_datetime`, `add_duration_to_datetime`, and `set_reminder` |
 | `4.tools/001_tools_007.py` | Multi-turn tool use — extended conversation loop with flexible message handlers and sequential tool chaining |
+| `4.tools/003_tool_streaming.py` | Streaming tool use — streams tokens and tool call arguments in real time with a multi-turn conversation loop |
 
 ## Provider Configuration
 
@@ -190,4 +191,21 @@ venv/bin/python 4.tools/001_tools.py
 
 ```bash
 venv/bin/python 4.tools/001_tools_007.py
+```
+
+## Streaming Tool Use
+
+`4.tools/003_tool_streaming.py` demonstrates streaming responses with tool calls using the same `requests`-based OpenRouter/Ollama setup. Tokens and tool call arguments are printed as they arrive. Key additions over the multi-turn script:
+
+- `chat_stream` sends the request with `stream: true` and returns the raw response
+- `parse_stream` decodes SSE lines (`data: {...}`) for OpenRouter or JSON lines for Ollama
+- Tool call arguments are accumulated incrementally as deltas arrive and printed in real time
+- Exponential backoff retry on 429 rate limit errors
+
+**Note:** Tool calling requires a model that supports it. Set `OPENROUTER_MODEL` in your `.env` to a capable model (e.g. `google/gemma-4-31b-it:free`).
+
+### Run
+
+```bash
+OPENROUTER_MODEL=google/gemma-4-31b-it:free venv/bin/python 4.tools/003_tool_streaming.py
 ```
