@@ -18,6 +18,16 @@ A collection of Python scripts demonstrating how to interact with LLMs via REST 
 | `4.tools/001_tools.py` | Tool use — agentic loop with `get_current_datetime`, `add_duration_to_datetime`, and `set_reminder` |
 | `4.tools/001_tools_007.py` | Multi-turn tool use — extended conversation loop with flexible message handlers and sequential tool chaining |
 | `4.tools/003_tool_streaming.py` | Streaming tool use — streams tokens and tool call arguments in real time with a multi-turn conversation loop |
+| `5.RAG/chunk/001_chunking.ipynb` | RAG chunking — text splitting strategies for retrieval-augmented generation |
+| `5.RAG/embedding/002_embeddings.ipynb` | RAG embeddings — generating and comparing vector embeddings with VoyageAI |
+| `5.RAG/RAGFlowImplementation/003_vectordb.ipynb` | Vector database — storing and querying embeddings for semantic search |
+| `5.RAG/RAGFlowImplementation/004_bm25.ipynb` | BM25 retrieval — keyword-based retrieval as a complement to vector search |
+| `5.RAG/RAGFlowImplementation/005_hybrid.ipynb` | Hybrid retrieval — combining vector and BM25 search with reciprocal rank fusion |
+| `6.extendedThinking/001_thinking.ipynb` | Extended thinking — enabling and using Claude's extended reasoning mode |
+| `7.imageSupport/002_images.ipynb` | Image support — sending images to the model and processing visual content |
+| `8.citation/002_citations_complete.ipynb` | Citations — extracting and formatting citations from model responses |
+| `9.codeExecution_fileAPI/005_code_execution.ipynb` | Code execution & File API — running code and working with uploaded files |
+| `10.MCP/cli_project_mine/main.py` | MCP chat app — interactive CLI chat with document retrieval and MCP tool/prompt/resource support |
 
 ## Provider Configuration
 
@@ -44,7 +54,7 @@ PROVIDER=ollama      # uses local Ollama instance
 
 2. Install dependencies:
    ```bash
-   pip install requests python-dotenv
+   pip install requests python-dotenv anthropic "mcp[cli]>=1.8.0" prompt-toolkit
    ```
 
 3. Create a `.env` file at the repo root:
@@ -208,4 +218,65 @@ venv/bin/python 4.tools/001_tools_007.py
 
 ```bash
 OPENROUTER_MODEL=google/gemma-4-31b-it:free venv/bin/python 4.tools/003_tool_streaming.py
+```
+
+## RAG — Retrieval-Augmented Generation
+
+The `5.RAG/` folder covers the full RAG pipeline across three subfolders:
+
+- **`chunk/`** — text splitting strategies (fixed-size, sentence, semantic)
+- **`embedding/`** — generating vector embeddings with VoyageAI
+- **`RAGFlowImplementation/`** — vector DB storage, BM25 keyword retrieval, and hybrid search combining both with reciprocal rank fusion
+
+Open notebooks in Jupyter:
+
+```bash
+venv/bin/jupyter notebook 5.RAG/
+```
+
+## Extended Thinking
+
+`6.extendedThinking/001_thinking.ipynb` demonstrates Claude's extended reasoning mode — enabling the model to think through complex problems step-by-step before responding.
+
+## Image Support
+
+`7.imageSupport/002_images.ipynb` demonstrates sending images to the model via the API and processing visual content in responses.
+
+## Citations
+
+`8.citation/002_citations_complete.ipynb` shows how to extract structured citations from model responses, linking claims back to source documents.
+
+## Code Execution & File API
+
+`9.codeExecution_fileAPI/005_code_execution.ipynb` demonstrates the code execution tool and File API — uploading files (e.g. `streaming.csv`) and having the model analyse them by running code.
+
+## MCP Chat App
+
+`10.MCP/cli_project_mine/` is a full CLI chat application using the Model Context Protocol (MCP). It uses OpenRouter or Ollama via `settings.py` and supports:
+
+- Document retrieval with `@doc_id` syntax
+- MCP prompt commands with `/command doc_id` syntax (Tab autocomplete)
+- Extensible tools and resources defined in `mcp_server.py`
+
+### Run the chat app
+
+```bash
+cd 10.MCP/cli_project_mine
+../../venv/bin/python main.py
+```
+
+### Test the MCP client
+
+Tests all client methods (`list_tools`, `call_tool`, `list_prompts`, `get_prompt`, `read_resource`) — no need to start the server separately:
+
+```bash
+cd 10.MCP/cli_project_mine
+../../venv/bin/python mcp_client.py
+```
+
+### Debug with the MCP Inspector (browser UI)
+
+```bash
+cd 10.MCP/cli_project_mine
+../../venv/bin/mcp dev mcp_server.py
 ```
